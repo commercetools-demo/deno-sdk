@@ -1,4 +1,4 @@
-import {sdk} from "https://deno.land/x/commercetools/api.ts";
+import {sdk} from "https://deno.land/x/commercetools_demo_sdk/api.ts";
 
 const handle = sdk.init()
 const result = await handle

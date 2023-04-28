@@ -26,7 +26,7 @@ install the [language server](https://marketplace.visualstudio.com/items?itemNam
 
 ***using the api***
 ```javascript
-import {sdk} from "https://deno.land/x/commercetools/api.ts";
+import {sdk} from "https://deno.land/x/commercetools_demo_sdk/api.ts";
 
 const handle = sdk.init()
 const result = await handle
@@ -43,12 +43,12 @@ Copy the text above in a file called ```projectsample.ts``` and run with:
 
 or, run it without copying anything:
 
-```deno run -A https://deno.land/x/commercetools/projectsample.ts```
+```deno run -A https://deno.land/x/commercetools_demo_sdk/projectsample.ts```
 
 or even nicer, install it
 
 ```
-deno install -A https://deno.land/x/commercetools/projectsample.ts
+deno install -A https://deno.land/x/commercetools_demo_sdk/projectsample.ts
 
 
 projectsample
