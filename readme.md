@@ -26,7 +26,7 @@ install the [language server](https://marketplace.visualstudio.com/items?itemNam
 
 ***using the api***
 ```javascript
-import {sdk} from "https://deno.land/x/commercetools_demo_sdk/api.ts";
+import {sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
 
 const handle = sdk.init()
 const result = await handle

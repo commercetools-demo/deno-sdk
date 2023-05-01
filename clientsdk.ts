@@ -15,19 +15,14 @@ export * from "npm:@commercetools/platform-sdk"
  * @description This is the entry point for the commercetools api see https://docs.commmercetools.com/api
  * @example
  * ```js
- * import {sdk, Project, Store} from "https://deno.land/x/commercetools@0.05/api.ts";
- * 
- * async function project(handle: sdk): Promise<Store[]>
- * {
- *    const result = await handle
- *       .apiRoot()
- *       .withProjectKey( { projectKey: handle.projectKey })
- *       .stores()
- *       .get({})
- *       .execute()
- *    return result.body.results
- * }
- * const pr = await project(sdk.init())
- * console.log(pr)
+ * import {sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
+ *
+ * const handle = sdk.init()
+ * const result = await handle
+ *    .apiRoot()
+ *    .withProjectKey( { projectKey: handle.projectKey })
+ *    .get()
+ *    .execute()
+ * console.log(result.body)
  * ```
  */
