@@ -29,7 +29,8 @@ export class sdkClient {
           clientSecret: this._config.client_secret
         },
         host: this._config.auth_url, 
-        projectKey: this._projectKey
+        projectKey: this._projectKey,
+        fetch
       })
       .withHttpMiddleware({
         host: this._config.api_url,

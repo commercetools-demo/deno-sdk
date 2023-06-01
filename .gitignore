@@ -4,3 +4,5 @@ test
 testremote
 exclude
 entities
+sdk.code-workspace
+.gitignore
