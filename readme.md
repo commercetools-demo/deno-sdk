@@ -21,7 +21,7 @@ CTP_AUTH_URL=https://auth.europe-west1.gcp.commercetools.com
 CTP_API_URL=https://api.europe-west1.gcp.commercetools.com
 CTP_SCOPES=manage_project:**-********-****
 ```
-
+ 
 install the [language server](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) client for Deno in vscode, to make sure that vscode understands your code is for Deno and not for Node.
 
 ***using the api***
