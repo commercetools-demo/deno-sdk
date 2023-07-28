@@ -1,6 +1,6 @@
 import {iConfig } from './interface/iConfig.ts'
 import { loglevel } from "./interface/iLogger.ts";
-import { isdk } from "./interface/isdk.ts"
+import { iOptions, isdk } from "./interface/isdk.ts"
 
 import { Config } from './Config.ts'
 import { basesdk } from "./abstract/basesdk.ts"
@@ -14,11 +14,21 @@ export class sdk extends basesdk implements isdk{
       super(config, apiRoot, projectKey)
    }
 
-   static init(verbose: loglevel= loglevel.quiet, manualconfig?: iConfig): sdk
+   static init(verbose: loglevel= loglevel.quiet, options?: iOptions, manualconfig?: iConfig): sdk
    {
       if (!sdk.instance) {
          const config = Config.init(manualconfig)
-         const apiRoot: sdkRoot = new sdkClient(config, verbose).withClientCredentials()
+         let apiRoot:sdkRoot
+         if (options?.passwordflow) {
+            apiRoot = new sdkClient(config, verbose).withUsernamePassword(options.passwordflow.email, options.passwordflow.password)
+         }
+         else if (options?.anonymous) {
+            apiRoot = new sdkClient(config, verbose).withAnonymous(options.anonymous.anonymous_id)
+         }
+         else {
+            apiRoot = new sdkClient(config, verbose).withClientCredentials()
+         }
+         
          const projectKey = config.project_key
          sdk.instance = new sdk(config, apiRoot, projectKey)
       }
