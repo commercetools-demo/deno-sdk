@@ -1,6 +1,7 @@
 import {iConfig } from './interface/iConfig.ts'
 import { loglevel } from "./interface/iLogger.ts";
 import { isdk } from "./interface/isdk.ts"
+import { ByProjectKeyRequestBuilder } from 'npm:@commercetools/importapi-sdk/dist/declarations/src/generated/client/by-project-key-request-builder';
 
 import { Config } from './Config.ts'
 import { basesdk } from "./abstract/basesdk.ts"
@@ -18,6 +19,12 @@ export class importsdk extends basesdk implements isdk{
       super(config, apiRoot, projectKey)
    }
 
+   /**
+    * Get a sdk client, will initialise from .env file,
+    * @param {loglevel} [verbose]
+    * @param {iConfig} [manualconfig] 
+    * @returns an api root for the project
+    */
    static init(verbose: loglevel = loglevel.quiet, manualconfig?: iConfig): importsdk
    {
       if (!importsdk.instance) {
@@ -32,8 +39,20 @@ export class importsdk extends basesdk implements isdk{
       }
       return importsdk.instance
    }
-
+   
+   /**
+   * @deprecated please use root() instead, easier to use, this returns the root with the right project key
+   */
    public apiRoot(): importRoot {
       return this._apiRoot as importRoot;
+   }
+
+   /**
+   * Create client with apiRoot
+   * root can now be used to build requests to the Composable Commerce API
+   */
+   public root(): ByProjectKeyRequestBuilder {
+      const aroot = this._apiRoot as importRoot
+      return aroot.withProjectKeyValue({projectKey: this._projectKey})
    }
 }
