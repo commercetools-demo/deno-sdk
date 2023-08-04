@@ -30,8 +30,7 @@ import {sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
 
 const handle = sdk.init()
 const result = await handle
-   .apiRoot()
-   .withProjectKey( { projectKey: handle.projectKey })
+   .root()
    .get()
    .execute()
 console.log(result.body)
@@ -58,7 +57,7 @@ projectsample
 ***using the api with password flow***
 
 ```javascript
-import {sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
+import {loglevel, sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
 
 const handle = sdk.init(loglevel.quiet, {
    passwordflow: {
@@ -68,8 +67,7 @@ const handle = sdk.init(loglevel.quiet, {
    }})
 
 const result = await handle
-   .apiRoot()
-   .withProjectKey( { projectKey: handle.projectKey })
+   .root()
    .get()
    .execute()
 console.log(result.body)
@@ -77,16 +75,16 @@ console.log(result.body)
 ***using the api with anonymous flow***
 
 ```javascript
-import {sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
+import {loglevel, sdk} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts";
 
 const handle = sdk.init(loglevel.quiet, {
       anonymous: {
-         anonymous_id: "myid"
+         anonymous_id: "myotherid"
       }})
 
 const result = await handle
-   .apiRoot()
-   .withProjectKey( { projectKey: handle.projectKey })
+   .root()
    .get()
    .execute()
 console.log(result.body)
+```
