@@ -3,8 +3,7 @@ import {sdk} from "./clientsdk.ts"
 
 const handle = sdk.init()
 const result = await handle
-   .apiRoot()
-   .withProjectKey( { projectKey: handle.projectKey })
+   .root()
    .get()
    .execute()
 console.log(result.body)

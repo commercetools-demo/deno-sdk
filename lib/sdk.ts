@@ -7,10 +7,9 @@ import { Config } from './Config.ts'
 import { basesdk } from "./abstract/basesdk.ts"
 import { sdkClient } from "./sdkClient.ts"
 import {ApiRoot as sdkRoot} from "./sdkClient.ts"
-import { OperationStates } from '../importsdk.ts';
 
 export class sdk extends basesdk implements isdk{
-   private static instance: sdk;
+   private static instance: sdk | undefined;
    private constructor(config: iConfig, apiRoot: sdkRoot, projectKey: string)
    {
       super(config, apiRoot, projectKey)
@@ -25,7 +24,7 @@ export class sdk extends basesdk implements isdk{
     */
    static init(verbose: loglevel= loglevel.quiet, options?: iOptions, manualconfig?: iConfig): sdk
    {
-      if (!sdk.instance) {
+      if (sdk.instance === undefined) {
          const config = Config.init(manualconfig)
          let apiRoot:sdkRoot
          if (options?.passwordflow !== undefined) {
@@ -44,7 +43,7 @@ export class sdk extends basesdk implements isdk{
 
    static getConfig(): iConfig
    {
-      return sdk.instance._config
+      return sdk.instance!._config
    }
 
    /**
@@ -57,5 +56,9 @@ export class sdk extends basesdk implements isdk{
    public root(): ByProjectKeyRequestBuilder {
       const aroot = this._apiRoot as sdkRoot
       return aroot.withProjectKey({projectKey: this._projectKey})
+   }
+
+   static destroy(): void {
+      sdk.instance = undefined
    }
 }

@@ -36,7 +36,7 @@ export class sdkClient {
         host: this._config.api_url,
         fetch: fetch
       })
-      .withUserAgentMiddleware({name: "Deno Typescript SDK"})
+      .withUserAgentMiddleware({name: "commercetools-demo Deno Typescript SDK"})
       .withMiddleware(customLogger(this._verbose)) 
       .build()
     return createApiBuilderFromCtpClient(client)
@@ -60,8 +60,10 @@ export class sdkClient {
         projectKey: this._projectKey
       })
       .withHttpMiddleware({
-        host: this._config.api_url
+        host: this._config.api_url,
+        fetch: fetch
       })
+      .withUserAgentMiddleware({name: "commercetools-demo Deno Typescript SDK"})
       .withMiddleware(customLogger(this._verbose)) 
       .build()
     return createApiBuilderFromCtpClient(client)
@@ -83,8 +85,10 @@ export class sdkClient {
         projectKey: this._projectKey
       })
       .withHttpMiddleware({
-        host: this._config.api_url
+        host: this._config.api_url,
+        fetch: fetch
       })
+      .withUserAgentMiddleware({name: "commercetools-demo Deno Typescript SDK"})
       .withMiddleware(customLogger(this._verbose)) 
       .build()
     return createApiBuilderFromCtpClient(client)
