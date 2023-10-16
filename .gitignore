@@ -1,8 +1,10 @@
 .vscode
 .env
-test
-testremote
+localtest
+remotetest
 exclude
 entities
 sdk.code-workspace
 .gitignore
+bench
+test

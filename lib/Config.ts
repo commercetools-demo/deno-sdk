@@ -1,6 +1,5 @@
 import { config as dotEnvConfig } from 'https://deno.land/x/dotenv@v1.0.1/mod.ts';
 import { iConfig } from './interface/iConfig.ts';
-
 import { colors } from "https://deno.land/x/cliffy/ansi/colors.ts";
 
 export class Config{
@@ -40,13 +39,23 @@ export class Config{
             client_id: Deno.env.get('CTP_CLIENT_ID')!,
             client_secret: Deno.env.get('CTP_CLIENT_SECRET')!,
          }
-         if (Deno.env.get('CTP_IMP_URL')) config.import_url = Deno.env.get('CTP_IMP_URL')
-         //if (Deno.env.get('CTP_HST_URL')) config.history_url = Deno.env.get('CTP_HST_URL')
+         config.import_url = (Deno.env.get('CTP_IMP_URL') !== undefined) ? Deno.env.get('CTP_IMP_URL') : Config.constructImportURL(config.api_url)
+         config.history_url = (Deno.env.get('CTP_HST_URL') !== undefined) ? Deno.env.get('CTP_HST_URL') : Config.constructHistoryURL(config.api_url)
          //if (Deno.env.get('CTP_ML_URL'))  config.ml_url = Deno.env.get('CTP_ML_URL')
          
          return new Config(config)._config
       }
       return new Config(options)._config
+   }
+
+   // function to make sure import url is allways present, even if not included in the .env file
+   private static constructImportURL(apiurl: string): string {
+      return apiurl.replace("://api", "://import")
+   }
+
+   // function to make sure history url is allways present, even if not included in the .env file
+   private static constructHistoryURL(apiurl: string): string {
+      return apiurl.replace("://api", "://history")
    }
 
    public get(): iConfig  {
@@ -64,6 +73,7 @@ export class Config{
       try {
          const file = Deno.openSync(filename, { read: true });
          Deno.fstatSync(file.rid);
+         file.close()
          return true
       }
       catch (_error)
@@ -78,8 +88,6 @@ export class Config{
       if (Deno.env.get(value) !== undefined) return true
       console.log(colors.red(`Environment variable ${value} is missing`))
       Deno.exit()
-      
-      
    }
 
    private static checkApiURL(): boolean

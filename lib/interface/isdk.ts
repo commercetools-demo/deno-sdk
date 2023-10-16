@@ -11,6 +11,6 @@ export interface iOptions {
    }
    anonymous?: {
       anonymous_id: string
+      refresh_token?: string
    }
-
 }

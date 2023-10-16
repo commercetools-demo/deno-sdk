@@ -1,8 +1,10 @@
 import { iConfig } from "./interface/iConfig.ts"
-import { customLogger } from "./customlogger.ts"
 import { ClientBuilder } from "npm:@commercetools/sdk-client-v2"
 import { createApiBuilderFromCtpClient, ApiRoot } from "npm:@commercetools/importapi-sdk"
 import { loglevel } from "./interface/iLogger.ts"
+import { httpMiddleware } from "./middlewares/httpMiddleware.ts";
+import { ClientCredentialsAuthMiddleware } from "./middlewares/ClientCredentialsAuthMiddleware.ts";
+import { userAgentMiddleware } from "./middlewares/userAgentMiddleware.ts";
 export { ApiRoot } from "npm:@commercetools/importapi-sdk"
 
 export class importClient {
@@ -17,26 +19,22 @@ export class importClient {
    }
 
    public withClientCredentials(): ApiRoot {
-      this._projectKey = this._config.project_key
-
+      if (this._verbose === loglevel.verbose) {
+         const client = new ClientBuilder()
+            .withProjectKey(this._projectKey)
+            .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
+            .withHttpMiddleware(httpMiddleware(this._config))
+            .withLoggerMiddleware()
+            .withUserAgentMiddleware(userAgentMiddleware)
+            .build()
+         return createApiBuilderFromCtpClient(client)
+      }
       const client = new ClientBuilder()
-         .withProjectKey(this._projectKey)
-         .withClientCredentialsFlow({
-            credentials: {
-               clientId: this._config.client_id,
-               clientSecret: this._config.client_secret
-            },
-            host: this._config.auth_url, 
-            projectKey: this._projectKey,
-            fetch
-         })
-         .withHttpMiddleware({
-            host: this._config.import_url!,
-            fetch,
-         })
-         .withMiddleware(customLogger(this._verbose)) 
-         .withUserAgentMiddleware()
-         .build()
-      return createApiBuilderFromCtpClient(client)
+      .withProjectKey(this._projectKey)
+      .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
+      .withHttpMiddleware(httpMiddleware(this._config))
+      .withUserAgentMiddleware(userAgentMiddleware)
+      .build()
+   return createApiBuilderFromCtpClient(client)
    }
 }

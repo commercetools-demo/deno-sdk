@@ -2,21 +2,18 @@ import {iConfig } from './interface/iConfig.ts'
 import { loglevel } from "./interface/iLogger.ts";
 import { isdk } from "./interface/isdk.ts"
 import { ByProjectKeyRequestBuilder } from 'npm:@commercetools/importapi-sdk/dist/declarations/src/generated/client/by-project-key-request-builder';
-
 import { Config } from './Config.ts'
 import { basesdk } from "./abstract/basesdk.ts"
-
 import {ApiRoot as importRoot} from "./importClient.ts"
 import { importClient } from './importClient.ts';
-
 import { colors } from "https://deno.land/x/cliffy/ansi/colors.ts";
 
 export class importsdk extends basesdk implements isdk{
 
    private static instance: importsdk;
-   private constructor(config: iConfig, apiRoot: importRoot, projectKey: string)
+   private constructor(config: iConfig, apiRoot: importRoot)
    {
-      super(config, apiRoot, projectKey)
+      super(config, apiRoot)
    }
 
    /**
@@ -34,8 +31,7 @@ export class importsdk extends basesdk implements isdk{
             Deno.exit()
          }
          const apiRoot: importRoot = new importClient(config, verbose).withClientCredentials()
-         const projectKey = config.project_key
-         importsdk.instance = new importsdk(config, apiRoot, projectKey)
+         importsdk.instance = new importsdk(config, apiRoot)
       }
       return importsdk.instance
    }
@@ -53,6 +49,6 @@ export class importsdk extends basesdk implements isdk{
    */
    public root(): ByProjectKeyRequestBuilder {
       const aroot = this._apiRoot as importRoot
-      return aroot.withProjectKeyValue({projectKey: this._projectKey})
+      return aroot.withProjectKeyValue({projectKey: this._config.project_key})
    }
 }

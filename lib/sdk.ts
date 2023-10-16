@@ -2,17 +2,16 @@ import {iConfig } from './interface/iConfig.ts'
 import { loglevel } from "./interface/iLogger.ts";
 import { iOptions, isdk } from "./interface/isdk.ts"
 import { ByProjectKeyRequestBuilder } from 'npm:@commercetools/platform-sdk/dist/declarations/src/generated/client/by-project-key-request-builder';
-
 import { Config } from './Config.ts'
 import { basesdk } from "./abstract/basesdk.ts"
-import { sdkClient } from "./sdkClient.ts"
+import { sdkClient } from "./sdkClient.ts";
 import {ApiRoot as sdkRoot} from "./sdkClient.ts"
 
 export class sdk extends basesdk implements isdk{
    private static instance: sdk | undefined;
-   private constructor(config: iConfig, apiRoot: sdkRoot, projectKey: string)
+   private constructor(config: iConfig, apiRoot: sdkRoot)
    {
-      super(config, apiRoot, projectKey)
+      super(config, apiRoot)
    }
 
    /**
@@ -28,22 +27,22 @@ export class sdk extends basesdk implements isdk{
          const config = Config.init(manualconfig)
          let apiRoot:sdkRoot
          if (options?.passwordflow !== undefined) {
-            apiRoot = new sdkClient(config, verbose).withUsernamePassword(options.passwordflow.email, options.passwordflow.password)
+            apiRoot = new sdkClient(config, verbose).withUsernamePassword(options)
          }
          else if (options?.anonymous !== undefined) {
-            apiRoot = new sdkClient(config, verbose).withAnonymous(options.anonymous.anonymous_id)
+            if (options.anonymous.refresh_token !== undefined) {
+               apiRoot = new sdkClient(config, verbose).withRefreshToken(options)
+            }
+            else {
+               apiRoot = new sdkClient(config, verbose).withAnonymous(options)
+            }
          }
          else {
             apiRoot = new sdkClient(config, verbose).withClientCredentials()
          }
-         sdk.instance = new sdk(config, apiRoot, config.project_key)
+         sdk.instance = new sdk(config, apiRoot)
       }
       return sdk.instance
-   }
-
-   static getConfig(): iConfig
-   {
-      return sdk.instance!._config
    }
 
    /**
@@ -55,7 +54,7 @@ export class sdk extends basesdk implements isdk{
 
    public root(): ByProjectKeyRequestBuilder {
       const aroot = this._apiRoot as sdkRoot
-      return aroot.withProjectKey({projectKey: this._projectKey})
+      return aroot.withProjectKey({projectKey: this.config.project_key})
    }
 
    static destroy(): void {
