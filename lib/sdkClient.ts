@@ -5,7 +5,7 @@ import { ApiRoot, createApiBuilderFromCtpClient } from "npm:@commercetools/platf
 import { userAgentMiddleware } from "./middlewares/userAgentMiddleware.ts";
 import { iOptions } from "./interface/isdk.ts";
 import { refreshAuthMiddleware } from "./middlewares/refreshAuthMiddleware.ts";
-import { httpMiddleware } from "./middlewares/httpMiddleware.ts";
+import { apiHttpMiddleware } from "./middlewares/httpMiddleware.ts";
 import { ClientCredentialsAuthMiddleware } from "./middlewares/ClientCredentialsAuthMiddleware.ts";
 import { passwordflowAuthMiddleware } from "./middlewares/passwordflowAuthMiddleware.ts";
 import { anonymousAuthMiddleware } from "./middlewares/anonymousAuthMiddleware.ts";
@@ -26,7 +26,7 @@ export class sdkClient {
       const client = new ClientBuilder()
         .withProjectKey(this._config.project_key)
         .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
-        .withHttpMiddleware(httpMiddleware(this._config))
+        .withHttpMiddleware(apiHttpMiddleware(this._config))
         .withUserAgentMiddleware(userAgentMiddleware)
         .withLoggerMiddleware() // include the logger middleware
         .build();
@@ -35,7 +35,7 @@ export class sdkClient {
     const client = new ClientBuilder()
       .withProjectKey(this._config.project_key)
       .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
-      .withHttpMiddleware(httpMiddleware(this._config))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .build();
     return createApiBuilderFromCtpClient(client)
@@ -46,7 +46,7 @@ export class sdkClient {
       const client = new ClientBuilder()
         .withProjectKey(this._projectKey)
         .withPasswordFlow(passwordflowAuthMiddleware(this._config, options))
-        .withHttpMiddleware(httpMiddleware(this._config))
+        .withHttpMiddleware(apiHttpMiddleware(this._config))
         .withUserAgentMiddleware(userAgentMiddleware)
         .withLoggerMiddleware() // include the logger middleware
         .build();
@@ -55,7 +55,7 @@ export class sdkClient {
     const client = new ClientBuilder()
       .withProjectKey(this._projectKey)
       .withPasswordFlow(passwordflowAuthMiddleware(this._config, options))
-      .withHttpMiddleware(httpMiddleware(this._config))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .build();
     return createApiBuilderFromCtpClient(client);
@@ -66,7 +66,7 @@ export class sdkClient {
       const client = new ClientBuilder()
       .withProjectKey(this._projectKey)
       .withAnonymousSessionFlow(anonymousAuthMiddleware(this._config, options))
-      .withHttpMiddleware(httpMiddleware(this._config))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .withLoggerMiddleware() // include the logger middleware
       .build();
@@ -75,7 +75,7 @@ export class sdkClient {
     const client = new ClientBuilder()
       .withProjectKey(this._projectKey)
       .withAnonymousSessionFlow(anonymousAuthMiddleware(this._config, options))
-      .withHttpMiddleware(httpMiddleware(this._config))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .build();
     return createApiBuilderFromCtpClient(client);
@@ -86,7 +86,7 @@ export class sdkClient {
       const client = new ClientBuilder()
         .withProjectKey(this._projectKey)
         .withRefreshTokenFlow(refreshAuthMiddleware(this._config, options))
-        .withHttpMiddleware(httpMiddleware(this._config))
+        .withHttpMiddleware(apiHttpMiddleware(this._config))
         .withUserAgentMiddleware(userAgentMiddleware)
         .withLoggerMiddleware() // include the logger middleware
         .build();
@@ -95,7 +95,7 @@ export class sdkClient {
     const client = new ClientBuilder()
       .withProjectKey(this._projectKey)
       .withRefreshTokenFlow(refreshAuthMiddleware(this._config, options))
-      .withHttpMiddleware(httpMiddleware(this._config))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .build();
     return createApiBuilderFromCtpClient(client);

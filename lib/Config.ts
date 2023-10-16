@@ -16,7 +16,7 @@ export class Config{
       if (options === undefined)
       {
          if (Deno.env.get('DENO_DEPLOYMENT_ID') === undefined)
-         {
+         {        
             if (!Config.checkEnvFile('.env')){
                console.log(colors.red(`No .env file found, make sure a .env file with client information is present in the root`))
                Deno.exit()

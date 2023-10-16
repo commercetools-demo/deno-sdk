@@ -2,7 +2,7 @@ import { iConfig } from "./interface/iConfig.ts"
 import { ClientBuilder } from "npm:@commercetools/sdk-client-v2"
 import { createApiBuilderFromCtpClient, ApiRoot } from "npm:@commercetools/importapi-sdk"
 import { loglevel } from "./interface/iLogger.ts"
-import { httpMiddleware } from "./middlewares/httpMiddleware.ts";
+import { importapiHttpMiddleware } from "./middlewares/httpMiddleware.ts";
 import { ClientCredentialsAuthMiddleware } from "./middlewares/ClientCredentialsAuthMiddleware.ts";
 import { userAgentMiddleware } from "./middlewares/userAgentMiddleware.ts";
 export { ApiRoot } from "npm:@commercetools/importapi-sdk"
@@ -23,18 +23,18 @@ export class importClient {
          const client = new ClientBuilder()
             .withProjectKey(this._projectKey)
             .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
-            .withHttpMiddleware(httpMiddleware(this._config))
+            .withHttpMiddleware(importapiHttpMiddleware(this._config))
             .withLoggerMiddleware()
             .withUserAgentMiddleware(userAgentMiddleware)
             .build()
          return createApiBuilderFromCtpClient(client)
       }
       const client = new ClientBuilder()
-      .withProjectKey(this._projectKey)
-      .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
-      .withHttpMiddleware(httpMiddleware(this._config))
-      .withUserAgentMiddleware(userAgentMiddleware)
-      .build()
-   return createApiBuilderFromCtpClient(client)
+         .withProjectKey(this._projectKey)
+         .withClientCredentialsFlow(ClientCredentialsAuthMiddleware(this._config))
+         .withHttpMiddleware(importapiHttpMiddleware(this._config))
+         .withUserAgentMiddleware(userAgentMiddleware)
+         .build()
+      return createApiBuilderFromCtpClient(client)
    }
 }

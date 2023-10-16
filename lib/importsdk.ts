@@ -7,6 +7,7 @@ import { basesdk } from "./abstract/basesdk.ts"
 import {ApiRoot as importRoot} from "./importClient.ts"
 import { importClient } from './importClient.ts';
 import { colors } from "https://deno.land/x/cliffy/ansi/colors.ts";
+import { checkPermissions } from "./permissions.ts";
 
 export class importsdk extends basesdk implements isdk{
 
@@ -25,6 +26,7 @@ export class importsdk extends basesdk implements isdk{
    static init(verbose: loglevel = loglevel.quiet, manualconfig?: iConfig): importsdk
    {
       if (!importsdk.instance) {
+         checkPermissions()
          const config = Config.init(manualconfig)
          if (config.import_url === undefined){
             console.log(colors.red(`No import url specified in config, should be like: CTP_IMP_URL=https://import.europe-west1.gcp.commercetools.com/`))
