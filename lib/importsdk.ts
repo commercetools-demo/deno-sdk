@@ -42,7 +42,7 @@ export class importsdk extends basesdk implements isdk{
    * @deprecated please use root() instead, easier to use, this returns the root with the right project key
    */
    public apiRoot(): importRoot {
-      return this._apiRoot as importRoot;
+      return this._apiRoot as importRoot
    }
 
    /**
