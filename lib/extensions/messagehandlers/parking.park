@@ -1,0 +1,119 @@
+
+const simplehandler = {
+   handle: (_msg: iProductMessage): iHandledResponse => {
+      return {
+         result: {
+            code: responseCode.SUCCESS
+         }
+      }
+   }
+}
+
+class simpleClassHandler {
+   static handle(_msg: iProductMessage): iHandledResponse {
+      return {
+         result: {
+            code: responseCode.SUCCESS
+         }
+      }
+   }
+}
+
+class actionClassHandler {
+   static handle(_msg: iProductMessage): iHandledResponse {
+      const actions: ProductUpdateAction[] = [
+         {
+            action: "setDescription",
+            description: {
+               "en-GB": "this is the description"
+            }
+         },
+         {
+            action: "publish"
+         }
+      ]
+      return {
+         result: {
+            code: responseCode.SUCCESS,
+            actions: actions
+         }
+      }
+   }
+}
+
+class OtherActionClassHandler {
+   static handle(_msg: iProductMessage): iHandledResponse {
+      const actions: ProductUpdateAction[] = [
+         {
+            action: "setMetaTitle",
+            metaTitle: {"en-GB": "a local title"}
+         },
+         {
+            action: "setMetaDescription",
+            metaDescription: {"en-GB": "a local description"}
+         }
+      ]
+      return {
+         result: {
+            code: responseCode.SUCCESS,
+            actions: actions
+         }
+      }
+   }
+}
+
+class failingClassHandler {
+   static handle(_msg: iProductMessage): iHandledResponse {
+      return {
+         result: {
+            code: responseCode.ERROR,
+            errors: [
+               {
+                  code: "InvalidInput",
+                  message: "this input is not allowed",
+                  detailedErrorMessage: "This provides some more details"
+               }
+            ]
+         }
+      }
+   }
+}
+
+
+
+const productHandler = new ProductHandler()
+productHandler.add(simplehandler)
+productHandler.add(simpleClassHandler)
+productHandler.add(failingClassHandler)
+productHandler.add(actionClassHandler)
+productHandler.add(actionClassHandler)
+productHandler.add(actionClassHandler)
+productHandler.add(OtherActionClassHandler)
+
+
+
+const result = productHandler.handleMessage({
+   action: "Create",
+   resource: {
+      id: "123",
+      obj: {
+         createdAt: "",
+         id: "123",
+         lastModifiedAt: "",
+         version: 1,
+         productType: {
+            typeId: "product-type",
+            id: "1234"
+         },
+         masterData: {
+            published: false,
+            current: {},
+            hasStagedChanges: false,
+            staged: {}
+         }
+      },
+      typeId: "product"
+   }
+})
+
+console.log(result)

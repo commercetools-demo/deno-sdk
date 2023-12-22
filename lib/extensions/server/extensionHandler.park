@@ -1,0 +1,97 @@
+import { BusinessUnit, Cart, Customer, Order, Payment, Product, Quote, QuoteRequest, ReferenceTypeId, StagedQuote } from "ct/sdk"
+import { Router } from "oak"
+import { cartUpdate, cartCreate } from "./handlers/cartHandler.ts"
+import { orderUpdate, orderCreate } from "./handlers/orderHandler.ts"
+import { productUpdate, productCreate } from "./handlers/ProductHandler.ts"
+import { paymentCreate, paymentUpdate } from "./handlers/paymentHandler.ts";
+import { customerCreate, customerUpdate } from "./handlers/customerHandler.ts";
+import { quoteRequestCreate, quoteRequestUpdate } from "./handlers/quoteRequestHandler.ts";
+import { stagedQuoteCreate, stagedQuoteUpdate } from "./handlers/stagedQuoteHandler.ts";
+import { quoteCreate, quoteUpdate } from "./handlers/quoteHandler.ts";
+import { businessUnitCreate, businessUnitUpdate } from "./handlers/businessUnitHandler.ts";
+import { ctcol } from "../../utils/utils.ts";
+
+type actionType = "Update" | "Create"
+
+interface referenceMessage {
+   action: actionType,
+   resource: {
+      id: string
+      typeId: ReferenceTypeId,
+      obj: Cart | Order | Product | Payment | Customer | QuoteRequest | StagedQuote | Quote | BusinessUnit
+   }
+}
+
+export class ClientInfo {
+   private _app = "";
+   private _project_key = "";
+   private _userid = "";
+   private _somehing = ""
+   
+   static fromCorrelationId(idstr: string): ClientInfo {
+      const ci = new ClientInfo()
+      const arr = idstr.split("/")
+      ci._app = arr[0]
+      ci._project_key = arr[1]
+      ci._userid = arr[2]
+      ci._somehing = arr[3]
+      return ci
+   }
+
+   public get app() {return this._app; }
+   public get project_key() {return this._project_key;}
+   public get userid() {return this._userid;}
+}
+
+export class extensionHandler {
+   
+   constructor(){
+      console.log(ctcol.turquoise(`contructor::extensionHandler`))
+   }
+
+   public router(): Router {
+      return new Router()
+      .post("/listener", async (ctx, next) => {
+         const result = ctx.request.body()
+         const body = await result.value
+         const res: {response?: any, status: number} = await this.handlePostAction(body)
+         ctx.response.body = res.response
+         ctx.response.status = res.status
+         return next()
+      })
+   }
+
+   private async handlePostAction(ref: referenceMessage): Promise<{ response?: any; status: number }>  {
+      switch (ref.action) {
+         case "Update": 
+            switch(ref.resource.typeId) {
+               case "cart": return await cartUpdate(ref.resource.obj as Cart)
+               case "order": return await orderUpdate(ref.resource.obj as Order)
+               case "product": return await productUpdate(ref.resource.obj as Product)
+               case "payment": return await paymentUpdate(ref.resource.obj as Payment)
+               case "customer": return await customerUpdate(ref.resource.obj as Customer)
+               case "quote-request": return await quoteRequestUpdate(ref.resource.obj as QuoteRequest)
+               case "staged-quote": return await stagedQuoteUpdate(ref.resource.obj as StagedQuote)
+               case "quote": return await quoteUpdate(ref.resource.obj as Quote)
+               case "business-unit": return await businessUnitUpdate(ref.resource.obj as BusinessUnit)
+            }
+         break
+         case "Create": 
+         switch(ref.resource.typeId) {
+            case "cart": return await cartCreate(ref.resource.obj as Cart)
+            case "order": return await orderCreate(ref.resource.obj as Order)
+            case "product": return await productCreate(ref.resource.obj as Product)
+            case "payment": return await paymentCreate(ref.resource.obj as Payment)
+            case "customer": return await customerCreate(ref.resource.obj as Customer)
+            case "quote-request": return await quoteRequestCreate(ref.resource.obj as QuoteRequest)
+            case "staged-quote": return await stagedQuoteCreate(ref.resource.obj as StagedQuote)
+            case "quote": return await quoteCreate(ref.resource.obj as Quote)
+            case "business-unit": return await businessUnitCreate(ref.resource.obj as BusinessUnit)
+         }
+         break
+      }
+      return {response: null, status: 200}
+   }
+}
+
+
