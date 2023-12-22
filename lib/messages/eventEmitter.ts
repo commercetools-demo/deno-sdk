@@ -1,4 +1,4 @@
-import { Message } from "ct/sdk"
+import { Message } from "./deps.ts"
 
 export enum EventTypes {
    All = "All",

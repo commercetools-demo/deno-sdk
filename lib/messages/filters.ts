@@ -1,4 +1,4 @@
-import { Message, ReferenceTypeId } from "ct/sdk"
+import { Message, ReferenceTypeId } from "./deps.ts"
 
 export type filterOption = 'approval-flow' | 'approval-rule' | 'associate-role' | 'attribute-group' | 'business-unit' | 'cart' | 'cart-discount' | 'category' | 'channel' | 'customer' | 'customer-email-token' | 'customer-group' | 'customer-password-token' | 'direct-discount' | 'discount-code' | 'extension' | 'inventory-entry' | 'key-value-document' | 'order' | 'order-edit' | 'payment' | 'product' | 'product-discount' | 'product-price' | 'product-selection' | 'product-type' | 'quote' | 'quote-request' | 'review' | 'shipping-method' | 'shopping-list' | 'staged-quote' | 'standalone-price' | 'state' | 'store' | 'subscription' | 'tax-category' | 'type' | 'zone'
 

@@ -1,4 +1,4 @@
-import { keypress, KeyPressEvent } from "cliffy/keypress"
+import { keypress, KeyPressEvent } from "./deps.ts"
 
 export class keyPress {
    public canceled = false

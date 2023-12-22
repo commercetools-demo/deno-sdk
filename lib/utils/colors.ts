@@ -1,4 +1,4 @@
-import { colors } from "cliffy/colors"
+import { colors } from "./deps.ts"
 
 // color definitions following commercetools color palette
 

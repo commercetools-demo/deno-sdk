@@ -1,4 +1,4 @@
-import { MessagePagedQueryResponse, sdk } from "ct/sdk"
+import { MessagePagedQueryResponse, sdk } from "./deps.ts"
 import { keyPress } from "./keypress.ts";
 import { filterMessages, filterOption, resourceFilter } from "./filters.ts";
 import { eventEmitter } from "./eventEmitter.ts";
@@ -6,7 +6,7 @@ import { ctcol } from "../utils/colors.ts";
 import { delay } from "../utils/utils.ts";
 import { AWSsqsOptions, AWSsnsOptions, AWSEventBridgeOptions, AzureServiceBusOptions, AzureEventGridOptions, GoogleCloudPubSubOptions, ConfluentCloudOptions, GoogleCloudPubSub } from "./queue/queueOptions.ts";
 export { EventTypes} from "./eventEmitter.ts"
-export type { Message } from "ct/sdk"
+export type { Message } from "./deps.ts"
 
 export class listener {
   private filter: resourceFilter[] | undefined = undefined
