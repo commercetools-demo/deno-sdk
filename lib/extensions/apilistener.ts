@@ -7,6 +7,7 @@ import { ApiExtensionsListener } from "./ApiExtensionsListener.ts";
 import { iTriggers } from "./messagehandlers/base/iTriggers.ts";
 
 export type { iTriggers } from "./messagehandlers/base/iTriggers.ts";
+export { CartHandler, CustomerHandler, OrderHandler, PaymentHandler, ProductHandler } from "./messagehandlers/messagehandlers.ts";
 
 export class apilistener {
    private _handle: sdk
