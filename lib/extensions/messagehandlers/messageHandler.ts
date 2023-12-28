@@ -19,7 +19,7 @@ interface referenceMessage {
 export class MessageHandler {
    private _triggers: iTriggers[] = []
    constructor(triggers: iTriggers[]){
-      console.log(ctcol.turquoise(`contructor::extensionHandler`))
+      console.log(ctcol.turquoise(`constructor::extensionHandler`))
       this._triggers = triggers
    }
 
