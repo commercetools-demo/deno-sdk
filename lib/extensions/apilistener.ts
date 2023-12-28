@@ -6,8 +6,15 @@ import { ApiExtension } from "./ct/ApiExtension.ts";
 import { ApiExtensionsListener } from "./ApiExtensionsListener.ts";
 import { iTriggers } from "./messagehandlers/base/iTriggers.ts";
 
+
 export type { iTriggers } from "./messagehandlers/base/iTriggers.ts";
 export { CartHandler, CustomerHandler, OrderHandler, PaymentHandler, ProductHandler } from "./messagehandlers/messagehandlers.ts";
+export { responseCode } from "./messagehandlers/base/iBaseHandler.ts";
+export type { iCustomerMessage, iCustomerResponse } from "./messagehandlers/customer/iCustomerHandler.ts"
+export type { iCartMessage, iCartResponse } from "./messagehandlers/cart/iCartHandler.ts"
+export type { iOrderMessage, iOrderResponse } from "./messagehandlers/order/iOrderHandler.ts"
+export type { iPaymentMessage, iPaymentResponse } from "./messagehandlers/payment/iPaymentHandler.ts"
+export type { iProductMessage, iProductResponse } from "./messagehandlers/product/iProductHandler.ts"
 
 export class apilistener {
    private _handle: sdk
