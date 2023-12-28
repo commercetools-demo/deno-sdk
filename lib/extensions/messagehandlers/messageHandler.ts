@@ -1,5 +1,5 @@
-import { BusinessUnit, Cart, Customer, Order, Payment, Product, Quote, QuoteRequest, ReferenceTypeId, StagedQuote } from "ct/sdk"
-import { Router } from "oak"
+import { BusinessUnit, Cart, Customer, Order, Payment, Product, Quote, QuoteRequest, ReferenceTypeId, StagedQuote } from "../deps.ts"
+import { Router } from  "../deps.ts"
 import { ctcol } from "../../utils/utils.ts";
 import { iHandledResponse, responseCode } from "./base/iBaseHandler.ts";
 import { iTriggers } from "./base/iTriggers.ts";

@@ -1,6 +1,6 @@
 import { BaseHandler } from "../base/BaseHandler.ts";
 import { iProductMessage, iProductMessageHandler, iProductResponse } from "./iProductHandler.ts";
-export type { ProductUpdateAction} from "ct/sdk"
+export type { ProductUpdateAction}  from "../../deps.ts"
 
 /**
  * @description the ProductHandler handles an incoming message and can process it, it returns a defined output

@@ -1,4 +1,4 @@
-import { Product, ProductUpdateAction } from "ct/sdk";
+import { Product, ProductUpdateAction }  from "../../deps.ts"
 import { actionType, errorMessage, iHandledResponse, responseCode } from "../base/iBaseHandler.ts";
 
 export { responseCode } from "../base/iBaseHandler.ts"

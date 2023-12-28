@@ -1,6 +1,6 @@
 import { BaseHandler } from "../base/BaseHandler.ts";
 import { iCartMessage, iCartMessageHandler, iCartResponse } from "./iCartHandler.ts";
-export type { CartUpdateAction} from "ct/sdk"
+export type { CartUpdateAction} from "../../deps.ts"
 
 /**
  * @description the CartHandler handles an incoming message and can process it, it returns a defined output

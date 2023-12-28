@@ -1,6 +1,6 @@
 import { BaseHandler } from "../base/BaseHandler.ts";
 import { iPaymentMessage, iPaymentMessageHandler, iPaymentResponse } from "./iPaymentHandler.ts";
-export type { PaymentUpdateAction} from "ct/sdk"
+export type { PaymentUpdateAction} from "../../deps.ts"
 
 /**
  * @description the PaymentHandler handles an incoming message and can process it, it returns a defined output

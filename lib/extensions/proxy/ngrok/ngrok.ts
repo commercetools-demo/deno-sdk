@@ -1,4 +1,4 @@
-import { SpinnerTypes, TerminalSpinner } from "spinner"
+import { SpinnerTypes, TerminalSpinner } from "../../deps.ts"
 import { delay, ctcol } from "../../../utils/utils.ts";
 import { iNgrokConfig } from "./iNgrokConfig.ts";
 import { iProxy, iProxyConfig } from "../iProxy.ts";

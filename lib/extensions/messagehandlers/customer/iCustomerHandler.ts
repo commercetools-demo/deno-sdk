@@ -1,4 +1,4 @@
-import { Customer, CustomerUpdateAction } from "ct/sdk";
+import { Customer, CustomerUpdateAction } from "../../deps.ts"
 import { actionType, errorMessage, iHandledResponse, responseCode } from "../base/iBaseHandler.ts";
 
 export { responseCode } from "../base/iBaseHandler.ts"

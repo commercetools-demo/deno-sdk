@@ -1,10 +1,7 @@
-import { Application, Router, send } from "oak"
+import { Application, Router, send } from "../deps.ts"
 import { ctcol } from "../../utils/utils.ts";
-import { Page } from "./pages/page.ts";
-import { sdk } from "ct/sdk";
 import { iApiExtension } from "../ct/iApiExtension.ts";
 import { MessageHandler } from "../messagehandlers/messageHandler.ts";
-
 
 export class ListenServer {
    private _app: Application | undefined = undefined
@@ -19,11 +16,9 @@ export class ListenServer {
       Deno.addSignalListener("SIGINT", this.sigint)
       const router = new Router() // use this endpoint to render a page
          .get("/", (ctx, next) => {
-            ctx.response.body = Page.render(sdk.init().config.project_key, this._apiextension.getTriggers())
+            ctx.response.body = "api extension listener"
             return next()
          })
-      
-      
       
       this._app = new Application()
       this._controller = new AbortController();

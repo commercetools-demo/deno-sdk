@@ -1,4 +1,4 @@
-import { Cart, CartUpdateAction } from "ct/sdk";
+import { Cart, CartUpdateAction }  from "../../deps.ts"
 import { actionType, errorMessage, iHandledResponse, responseCode } from "../base/iBaseHandler.ts";
 
 export { responseCode } from "../base/iBaseHandler.ts"

@@ -1,4 +1,4 @@
-import { Payment, PaymentUpdateAction } from "ct/sdk";
+import { Payment, PaymentUpdateAction } from "../../deps.ts"
 import { actionType, errorMessage, iHandledResponse, responseCode } from "../base/iBaseHandler.ts";
 
 export { responseCode } from "../base/iBaseHandler.ts"

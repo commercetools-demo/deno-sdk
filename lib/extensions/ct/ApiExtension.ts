@@ -1,9 +1,8 @@
+import { Extension, ExtensionDraft, sdk } from "../deps.ts";
+import hash from "https://deno.land/x/object_hash@2.0.3.1/mod.ts";
 import { ctcol } from "../../utils/utils.ts";
 import { iTriggers } from "../messagehandlers/base/iTriggers.ts";
 import { iApiExtension } from "./iApiExtension.ts";
-import { Extension, ExtensionDraft, sdk } from "ct/sdk";
-import hash from "https://deno.land/x/object_hash@2.0.3.1/mod.ts";
-
 
 export class ApiExtension implements iApiExtension {
    private _handle: sdk 

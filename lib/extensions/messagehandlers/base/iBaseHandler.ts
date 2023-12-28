@@ -1,4 +1,4 @@
-import { BusinessUnit, Cart, Customer, Order, Payment, Product, Quote, QuoteRequest, ReferenceTypeId, StagedQuote, UpdateAction } from "ct/sdk";
+import { BusinessUnit, Cart, Customer, Order, Payment, Product, Quote, QuoteRequest, ReferenceTypeId, StagedQuote, UpdateAction } from "../../deps.ts";
 
 export type actionType = "Update" | "Create"
 

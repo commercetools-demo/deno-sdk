@@ -1,4 +1,4 @@
-import { sdk } from "ct/sdk";
+import { sdk } from "./deps.ts";
 import { iProxyConfig } from "./proxy/iProxy.ts";
 import { Proxy } from "./proxy/Proxy.ts";
 import { Ngrok } from "./proxy/ngrok/ngrok.ts";
