@@ -7,6 +7,7 @@ import { delay } from "../utils/utils.ts";
 import { AWSsqsOptions, AWSsnsOptions, AWSEventBridgeOptions, AzureServiceBusOptions, AzureEventGridOptions, GoogleCloudPubSubOptions, ConfluentCloudOptions, GoogleCloudPubSub } from "./queue/queueOptions.ts";
 export { EventTypes} from "./eventEmitter.ts"
 export type { Message } from "./deps.ts"
+export type EventMessage<T> = CustomEventInit<T>
 
 export class listener {
   private filter: resourceFilter[] | undefined = undefined
