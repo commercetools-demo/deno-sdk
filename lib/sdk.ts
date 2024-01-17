@@ -29,7 +29,13 @@ export class sdk extends basesdk implements isdk{
          const config = Config.init(manualconfig)
          let apiRoot:sdkRoot
          if (options?.passwordflow !== undefined) {
-            apiRoot = new sdkClient(config, verbose).withUsernamePassword(options)
+            if (options.passwordflow.storeKey === undefined) {
+               apiRoot = new sdkClient(config, verbose).withUsernamePassword(options)
+            }
+            else {
+               apiRoot = new sdkClient(config, verbose).withUsernamePasswordStore(options)
+            }
+            
          }
          else if (options?.anonymous !== undefined) {
             if (options.anonymous.refresh_token !== undefined) {

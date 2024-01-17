@@ -9,6 +9,7 @@ import { apiHttpMiddleware } from "./middlewares/httpMiddleware.ts";
 import { ClientCredentialsAuthMiddleware } from "./middlewares/ClientCredentialsAuthMiddleware.ts";
 import { passwordflowAuthMiddleware } from "./middlewares/passwordflowAuthMiddleware.ts";
 import { anonymousAuthMiddleware } from "./middlewares/anonymousAuthMiddleware.ts";
+import { passwordflowStoreAuthMiddleware } from "./middlewares/passwordflowStoreAuthMiddleware.ts";
 
 export class sdkClient {
   protected _config: iConfig;
@@ -55,6 +56,27 @@ export class sdkClient {
     const client = new ClientBuilder()
       .withProjectKey(this._projectKey)
       .withPasswordFlow(passwordflowAuthMiddleware(this._config, options))
+      .withHttpMiddleware(apiHttpMiddleware(this._config))
+      .withUserAgentMiddleware(userAgentMiddleware)
+      .build();
+    return createApiBuilderFromCtpClient(client);
+  }
+
+  public withUsernamePasswordStore(options: iOptions): ApiRoot {
+    if (this._verbose === loglevel.verbose) {
+      const client = new ClientBuilder()
+        .withProjectKey(this._projectKey)
+        .withPasswordFlow(passwordflowStoreAuthMiddleware(this._config, options))
+        .withHttpMiddleware(apiHttpMiddleware(this._config))
+        .withUserAgentMiddleware(userAgentMiddleware)
+        .withLoggerMiddleware() // include the logger middleware
+        .build()
+      console.log(client)
+      return createApiBuilderFromCtpClient(client);
+    }
+    const client = new ClientBuilder()
+      .withProjectKey(this._projectKey)
+      .withPasswordFlow(passwordflowStoreAuthMiddleware(this._config, options))
       .withHttpMiddleware(apiHttpMiddleware(this._config))
       .withUserAgentMiddleware(userAgentMiddleware)
       .build();
