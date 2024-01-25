@@ -72,7 +72,7 @@ export class Config{
    {
       try {
          const file = Deno.openSync(filename, { read: true });
-         Deno.fstatSync(file.rid);
+         file.statSync()
          file.close()
          return true
       }
