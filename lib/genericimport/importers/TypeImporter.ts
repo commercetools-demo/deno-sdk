@@ -1,4 +1,4 @@
-import { TypeImport, ImportContainer, ImportOperationStatus, importsdk } from "ct/importsdk";
+import { TypeImport, ImportContainer, ImportOperationStatus, importsdk } from "../../../importsdk.ts";
 import { ImportType, iImportHandler } from "./iImportHandler.ts";
 import { test } from "./utils.ts";
 

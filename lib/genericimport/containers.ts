@@ -1,4 +1,4 @@
-import { ImportContainer, ImportOperation, importsdk } from "ct/importsdk";
+import { ImportContainer, ImportOperation, importsdk } from "../../importsdk.ts";
 
 export async function getContainers(importer: importsdk): Promise<ImportContainer[]> {
   const result = await importer

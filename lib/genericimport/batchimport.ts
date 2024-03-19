@@ -1,6 +1,6 @@
 import { SpinnerTypes, TerminalSpinner} from "https://deno.land/x/spinners/mod.ts";
 import { getContainerStatus, getOrCreateContainer } from "./containers.ts";
-import { ImportOperationStatus, importsdk } from "ct/importsdk";
+import { ImportOperationStatus, importsdk } from "../../importsdk.ts";
 import { ctcol } from "../utils/colors.ts";
 import { TypedImporter } from "./importers/iImportHandler.ts";
 

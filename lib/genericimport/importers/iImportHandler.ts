@@ -1,4 +1,4 @@
-import {  ImportContainer, ImportOperationStatus, OrderImport, ProductVariantPatchRequest, _ImportResource, importsdk } from "ct/importsdk";
+import {  ImportContainer, ImportOperationStatus, OrderImport, ProductVariantPatchRequest, _ImportResource, importsdk } from "../../../importsdk.ts";
 
 export enum ImportType {
    category = "category",

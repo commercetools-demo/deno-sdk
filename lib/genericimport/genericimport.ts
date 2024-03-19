@@ -1,16 +1,16 @@
 import { ctcol } from "../utils/colors.ts";
 import { importbatch } from "./batchimport.ts";
-import { Inventory } from "./importers/InventoryImporter.ts";
-import { Order } from "./importers/OrderImporter.ts";
-import { Price } from "./importers/PriceImporter.ts";
-import { ProductType } from "./importers/ProductTypeImporter.ts";
-import { ProductVariant } from "./importers/ProductVariantImporter.ts";
-import { StandalonePrice } from "./importers/StandalonePriceImporter.ts";
-import { Type } from "./importers/TypeImporter.ts";
-import { Category } from "./importers/categoryImporter.ts";
-import { Customer } from "./importers/customerImporter.ts";
+import { Inventory } from "./importers/inventoryimporter.ts";
+import { Order } from "./importers/orderimporter.ts";
+import { Price } from "./importers/priceimporter.ts";
+import { ProductType } from "./importers/producttypeimporter.ts";
+import { ProductVariant } from "./importers/productvariantimporter.ts";
+import { StandalonePrice } from "./importers/standalonepriceimporter.ts";
+import { Type } from "./importers/typeimporter.ts";
+import { Category } from "./importers/categoryimporter.ts";
+import { Customer } from "./importers/customerimporter.ts";
 import { ImportResource, iImportHandler, ImportType } from "./importers/iImportHandler.ts";
-import { Product } from "./importers/productImporter.ts";
+import { Product } from "./importers/productimporter.ts";
 // export for cleaner usage
 export { ImportType} from "./importers/iImportHandler.ts"
 
