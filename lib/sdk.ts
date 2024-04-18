@@ -25,7 +25,7 @@ export class sdk extends basesdk implements isdk{
    static init(verbose: loglevel= loglevel.quiet, options?: iOptions, manualconfig?: iConfig): sdk
    {
       if (sdk.instance === undefined) {
-         checkPermissions()
+         //checkPermissions()
          const config = Config.init(manualconfig)
          let apiRoot:sdkRoot
          if (options?.passwordflow !== undefined) {
