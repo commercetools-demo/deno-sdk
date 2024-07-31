@@ -542,6 +542,6 @@ export const eventEmitter = (msg: Message): void => {
          break
       }   
    }
-   dispatchEvent(new CustomEvent(EventTypes.All, { detail: msg }))
+   //dispatchEvent(new CustomEvent(EventTypes.All, { detail: msg }))
    //dispatchEvent(new CustomEvent(msg.type, { detail: msg }))
 }
