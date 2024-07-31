@@ -274,9 +274,10 @@ export const eventEmitter = (msg: Message): void => {
       case "ApprovalFlowApproved":
       case "ApprovalFlowCompleted":
       case "ApprovalFlowCreated":
-      case "ApprovalFlowRejected":
+      case "ApprovalFlowRejected": {
          dispatchEvent(new CustomEvent(EventTypes.ApprovalFlow, { detail: msg }))
-      /* falls through */
+         break
+      }   
       case "ApprovalRuleApproversSet":
       case "ApprovalRuleCreated":
       case "ApprovalRuleDescriptionSet":
@@ -284,18 +285,20 @@ export const eventEmitter = (msg: Message): void => {
       case "ApprovalRuleNameSet":
       case "ApprovalRulePredicateSet":
       case "ApprovalRuleRequestersSet":
-      case "ApprovalRuleStatusSet":
+      case "ApprovalRuleStatusSet": {
          dispatchEvent(new CustomEvent(EventTypes.ApprovalRule, { detail: msg }))
-      /* falls through */
+         break
+      }   
       case "AssociateRoleBuyerAssignableChanged":
       case "AssociateRoleCreated":
       case "AssociateRoleDeleted":
       case "AssociateRoleNameSet":
       case "AssociateRolePermissionAdded":
       case "AssociateRolePermissionRemoved":
-      case "AssociateRolePermissionsSet":
+      case "AssociateRolePermissionsSet": {
          dispatchEvent(new CustomEvent(EventTypes.AssociateRole, { detail: msg }))
-      /* falls through */
+         break
+      }   
       case "BusinessUnitAddressAdded":
       case "BusinessUnitAddressChanged":
       case "BusinessUnitAddressCustomFieldAdded":
@@ -303,16 +306,18 @@ export const eventEmitter = (msg: Message): void => {
       case "BusinessUnitAddressCustomFieldRemoved":
       case "BusinessUnitAddressCustomTypeRemoved":
       case "BusinessUnitAddressCustomTypeSet":
-      case "BusinessUnitAddressRemoved":
+      case "BusinessUnitAddressRemoved": {
          dispatchEvent(new CustomEvent(EventTypes.BusinessUnitAddress, { detail: msg }))
-         /* falls through */
+         break
+      }   
       case "BusinessUnitAssociateAdded":
       case "BusinessUnitAssociateChanged":
       case "BusinessUnitAssociateModeChanged":
       case "BusinessUnitAssociateRemoved":
-      case "BusinessUnitAssociatesSet":
+      case "BusinessUnitAssociatesSet": {
          dispatchEvent(new CustomEvent(EventTypes.BusinessUnitAssociate, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "BusinessUnitBillingAddressAdded":
       case "BusinessUnitBillingAddressRemoved":
       case "BusinessUnitContactEmailSet":
@@ -333,13 +338,15 @@ export const eventEmitter = (msg: Message): void => {
       case "BusinessUnitStoreAdded":
       case "BusinessUnitStoreModeChanged":
       case "BusinessUnitStoreRemoved":
-      case "BusinessUnitStoresSet":
+      case "BusinessUnitStoresSet": {
          dispatchEvent(new CustomEvent(EventTypes.BusinessUnit, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "CategoryCreated":
-      case "CategorySlugChanged":
+      case "CategorySlugChanged": {
          dispatchEvent(new CustomEvent(EventTypes.Category, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "CustomLineItemStateTransition":
       case "CustomerAddressAdded":
       case "CustomerAddressChanged":
@@ -371,18 +378,20 @@ export const eventEmitter = (msg: Message): void => {
       case "CustomerLastNameSet":
       case "CustomerPasswordTokenCreated":
       case "CustomerPasswordUpdated":
-      case "CustomerTitleSet":
+      case "CustomerTitleSet": {
          dispatchEvent(new CustomEvent(EventTypes.Customer, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "DeliveryAdded":
       case "DeliveryAddressSet":
       case "DeliveryItemsUpdated":
       case "DeliveryRemoved":
       case "InventoryEntryCreated":
       case "InventoryEntryDeleted":
-      case "InventoryEntryQuantitySet":
+      case "InventoryEntryQuantitySet": {
          dispatchEvent(new CustomEvent(EventTypes.Inventory, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "LineItemStateTransition":
       case "OrderBillingAddressSet":
       case "OrderCreated":
@@ -418,28 +427,32 @@ export const eventEmitter = (msg: Message): void => {
       case "OrderStateChanged":
       case "OrderStateTransition":
       case "OrderStoreSet":
-      case "OrderPaymentAdded":
+      case "OrderPaymentAdded": {
          dispatchEvent(new CustomEvent(EventTypes.Order, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "ParcelAddedToDelivery":
       case "ParcelItemsUpdated":
       case "ParcelMeasurementsUpdated":
       case "ParcelRemovedFromDelivery":
-      case "ParcelTrackingDataUpdated":
+      case "ParcelTrackingDataUpdated": {
          dispatchEvent(new CustomEvent(EventTypes.Parcel, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "ReturnInfoAdded":
-      case "ReturnInfoSet":
+      case "ReturnInfoSet": {
          dispatchEvent(new CustomEvent(EventTypes.Return, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "PaymentCreated":
       case "PaymentInteractionAdded":
       case "PaymentStatusInterfaceCodeSet":
       case "PaymentStatusStateTransition":
       case "PaymentTransactionAdded":
-      case "PaymentTransactionStateChanged":
+      case "PaymentTransactionStateChanged": {
          dispatchEvent(new CustomEvent(EventTypes.Payment, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "ProductAddedToCategory":
       case "ProductCreated":
       case "ProductDeleted":
@@ -466,9 +479,10 @@ export const eventEmitter = (msg: Message): void => {
       case "ProductStateTransition":
       case "ProductUnpublished":
       case "ProductVariantAdded":
-      case "ProductVariantDeleted":
+      case "ProductVariantDeleted": {
          dispatchEvent(new CustomEvent(EventTypes.Product, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "QuoteCreated":
       case "QuoteCustomerChanged":
       case "QuoteDeleted":
@@ -479,22 +493,25 @@ export const eventEmitter = (msg: Message): void => {
       case "QuoteRequestStateChanged":
       case "QuoteRequestStateTransition":
       case "QuoteStateChanged":
-      case "QuoteStateTransition":
+      case "QuoteStateTransition": {
          dispatchEvent(new CustomEvent(EventTypes.Quote, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "ReviewCreated":
       case "ReviewRatingSet":
-      case "ReviewStateTransition":
+      case "ReviewStateTransition": {
          dispatchEvent(new CustomEvent(EventTypes.Review, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "StagedQuoteCreated":
       case "StagedQuoteDeleted":
       case "StagedQuoteSellerCommentSet":
       case "StagedQuoteStateChanged":
       case "StagedQuoteStateTransition":
-      case "StagedQuoteValidToSet":
+      case "StagedQuoteValidToSet": {
          dispatchEvent(new CustomEvent(EventTypes.StagedQuote, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "StandalonePriceActiveChanged":
       case "StandalonePriceCreated":
       case "StandalonePriceDeleted":
@@ -509,9 +526,10 @@ export const eventEmitter = (msg: Message): void => {
       case "StandalonePriceValidFromAndUntilSet":
       case "StandalonePriceValidFromSet":
       case "StandalonePriceValidUntilSet":
-      case "StandalonePriceValueChanged":
+      case "StandalonePriceValueChanged": {
          dispatchEvent(new CustomEvent(EventTypes.StandalonePrice, {detail: msg}))
-         /* falls through */
+         break
+      }   
       case "StoreCountriesChanged":
       case "StoreCreated":
       case "StoreDeleted":
@@ -519,9 +537,10 @@ export const eventEmitter = (msg: Message): void => {
       case "StoreLanguagesChanged":
       case "StoreNameSet":
       case "StoreProductSelectionsChanged":
-      case "StoreSupplyChannelsChanged":
+      case "StoreSupplyChannelsChanged": {
          dispatchEvent(new CustomEvent(EventTypes.Store, {detail: msg}))
-         /* falls through */
+         break
+      }   
    }
    dispatchEvent(new CustomEvent(EventTypes.All, { detail: msg }))
    dispatchEvent(new CustomEvent(msg.type, { detail: msg }))
