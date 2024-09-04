@@ -10,6 +10,7 @@ export enum ImportType {
    producttype = "producttype",
    productvariant = "productvariant",
    standaloneprice = "standaloneprice",
+   discountcode = "discountcode",
    type = "type"
 }
 

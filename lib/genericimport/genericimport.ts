@@ -11,6 +11,7 @@ import { Category } from "./importers/categoryimporter.ts";
 import { Customer } from "./importers/customerimporter.ts";
 import { ImportResource, iImportHandler, ImportType } from "./importers/iImportHandler.ts";
 import { Product } from "./importers/productimporter.ts";
+import { DiscountCode } from "./importers/discountcodeimporter.ts";
 // export for cleaner usage
 export { ImportType} from "./importers/iImportHandler.ts"
 
@@ -29,6 +30,7 @@ const entityFunctionMap:entityFunction[] = [
    { entity: ImportType.producttype, funct: ProductType},
    { entity: ImportType.productvariant, funct: ProductVariant},
    { entity: ImportType.standaloneprice,  funct: StandalonePrice},
+   { entity: ImportType.discountcode,  funct: DiscountCode},
    { entity: ImportType.type, funct: Type}
 ]
 
