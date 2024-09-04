@@ -1,4 +1,4 @@
 export interface AWSEventBridgeOptions {
-   region: string
-   accountId: string
+	region: string
+	accountId: string
 }

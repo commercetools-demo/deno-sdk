@@ -1,4 +1,4 @@
 export interface iNgrokConfig {
-   API_KEY: string,
-   API_ENDPOINT: string
+	API_KEY: string
+	API_ENDPOINT: string
 }

@@ -1,1 +1,1 @@
-export {colors} from "https://deno.land/x/cliffy/ansi/colors.ts"
+export { colors } from "https://deno.land/x/cliffy/ansi/colors.ts"

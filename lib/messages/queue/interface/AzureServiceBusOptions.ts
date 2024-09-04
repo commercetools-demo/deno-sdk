@@ -1,3 +1,3 @@
 export interface AzureServiceBusOptions {
-   connectionString: string
+	connectionString: string
 }

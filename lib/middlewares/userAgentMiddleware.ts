@@ -1,3 +1,3 @@
-export const userAgentMiddleware = { 
-   libraryName: "commercetools-demo Deno Typescript SDK",
+export const userAgentMiddleware = {
+	libraryName: "commercetools-demo Deno Typescript SDK",
 }

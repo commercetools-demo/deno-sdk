@@ -1,1 +1,4 @@
-export  { ImportType, Importer } from "./lib/genericimport/genericimport.ts";
+/**
+ * @deprecated please is now exported from importsdk
+ */
+export { Importer, ImportType } from "./lib/genericimport/genericimport.ts"

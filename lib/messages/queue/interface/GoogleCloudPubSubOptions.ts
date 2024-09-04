@@ -1,4 +1,4 @@
 export interface GoogleCloudPubSubOptions {
-   projectId: string
-   topic: string
+	projectId: string
+	topic: string
 }

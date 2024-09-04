@@ -1,4 +1,4 @@
 export interface AzureEventGridOptions {
-   uri: string
-   accessKey: string
+	uri: string
+	accessKey: string
 }
