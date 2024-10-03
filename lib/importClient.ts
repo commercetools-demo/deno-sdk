@@ -1,14 +1,14 @@
 import { iConfig } from "./interface/iConfig.ts"
-import { ClientBuilder } from "npm:@commercetools/sdk-client-v2"
+import { ClientBuilder } from "npm:@commercetools/sdk-client-v2@latest"
 import {
 	ApiRoot,
 	createApiBuilderFromCtpClient,
-} from "npm:@commercetools/importapi-sdk"
+} from "npm:@commercetools/importapi-sdk@latest"
 import { loglevel } from "./interface/iLogger.ts"
 import { importapiHttpMiddleware } from "./middlewares/httpMiddleware.ts"
 import { ClientCredentialsAuthMiddleware } from "./middlewares/ClientCredentialsAuthMiddleware.ts"
 import { userAgentMiddleware } from "./middlewares/userAgentMiddleware.ts"
-export { ApiRoot } from "npm:@commercetools/importapi-sdk"
+export { ApiRoot } from "npm:@commercetools/importapi-sdk@latest"
 
 export class importClient {
 	protected _config: iConfig

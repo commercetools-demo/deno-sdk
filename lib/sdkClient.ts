@@ -1,10 +1,10 @@
 import { iConfig } from "./interface/iConfig.ts"
 import { loglevel } from "./interface/iLogger.ts"
-import { ClientBuilder } from "npm:@commercetools/sdk-client-v2"
+import { ClientBuilder } from "npm:@commercetools/sdk-client-v2@latest"
 import {
 	ApiRoot,
 	createApiBuilderFromCtpClient,
-} from "npm:@commercetools/platform-sdk"
+} from "npm:@commercetools/platform-sdk@latest"
 import { userAgentMiddleware } from "./middlewares/userAgentMiddleware.ts"
 import { iOptions } from "./interface/isdk.ts"
 import { refreshAuthMiddleware } from "./middlewares/refreshAuthMiddleware.ts"
@@ -139,5 +139,5 @@ export class sdkClient {
 	}
 }
 
-export { ApiRoot } from "npm:@commercetools/platform-sdk"
-export * from "npm:@commercetools/platform-sdk"
+export { ApiRoot } from "npm:@commercetools/platform-sdk@latest"
+export * from "npm:@commercetools/platform-sdk@latest"

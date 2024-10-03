@@ -1,7 +1,7 @@
 import { iConfig } from "./interface/iConfig.ts"
 import { loglevel } from "./interface/iLogger.ts"
 import { iOptions, isdk } from "./interface/isdk.ts"
-import { ByProjectKeyRequestBuilder } from "npm:@commercetools/platform-sdk/dist/declarations/src/generated/client/by-project-key-request-builder"
+import { ByProjectKeyRequestBuilder } from "npm:@commercetools/platform-sdk@latest/dist/declarations/src/generated/client/by-project-key-request-builder"
 import { Config } from "./Config.ts"
 import { basesdk } from "./abstract/basesdk.ts"
 import { sdkClient } from "./sdkClient.ts"
