@@ -1,4 +1,4 @@
-import { BaseHandler } from "./BaseHandler.ts"
+import type { BaseHandler } from "./BaseHandler.ts"
 
 export type ResourceType =
 	| "cart"

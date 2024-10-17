@@ -1,5 +1,5 @@
-import { Payment, PaymentUpdateAction } from "../../deps.ts"
-import {
+import type { Payment, PaymentUpdateAction } from "../../deps.ts"
+import type {
 	actionType,
 	errorMessage,
 	iHandledResponse,

@@ -1,4 +1,4 @@
-import { Message } from "./deps.ts"
+import type { Message } from "./deps.ts"
 
 export enum EventTypes {
 	All = "All",

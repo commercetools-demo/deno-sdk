@@ -6,14 +6,15 @@ export { sdk } from "./lib/sdk.ts"
 
 export * from "npm:@commercetools/sdk-client-v2@latest"
 export * from "npm:@commercetools/platform-sdk@latest"
-export type {ClientRequest,
-   ClientResponse,
-   MethodType,
-   Middleware,
-   QueryParam,
-   UpdateAction,
-   VariableMap,
-   executeRequest
+export type {
+	ClientRequest,
+	ClientResponse,
+	executeRequest,
+	MethodType,
+	Middleware,
+	QueryParam,
+	UpdateAction,
+	VariableMap,
 } from "npm:@commercetools/sdk-client-v2@latest"
 /**
  * commercetools sdk wrapper for the sdk client

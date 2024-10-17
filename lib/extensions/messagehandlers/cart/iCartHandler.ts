@@ -1,5 +1,5 @@
-import { Cart, CartUpdateAction } from "../../deps.ts"
-import {
+import type { Cart, CartUpdateAction } from "../../deps.ts"
+import type {
 	actionType,
 	errorMessage,
 	iHandledResponse,

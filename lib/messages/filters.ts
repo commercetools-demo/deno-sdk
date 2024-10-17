@@ -1,4 +1,4 @@
-import { Message, ReferenceTypeId } from "./deps.ts"
+import type { Message, ReferenceTypeId } from "./deps.ts"
 
 export type filterOption =
 	| "approval-flow"

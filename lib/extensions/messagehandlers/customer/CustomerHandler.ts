@@ -1,5 +1,5 @@
 import { BaseHandler } from "../base/BaseHandler.ts"
-import {
+import type {
 	iCustomerMessage,
 	iCustomerMessageHandler,
 	iCustomerResponse,
@@ -15,7 +15,9 @@ export class CustomerHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a CustomerMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	override async handleMessage(msg: iCustomerMessage): Promise<iCustomerResponse> {
+	override async handleMessage(
+		msg: iCustomerMessage,
+	): Promise<iCustomerResponse> {
 		const result = await super.handleMessage(msg) as iCustomerResponse
 		return result
 	}

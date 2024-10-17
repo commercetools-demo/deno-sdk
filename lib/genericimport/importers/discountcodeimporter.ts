@@ -1,10 +1,10 @@
-import {
+import type {
 	DiscountCodeImport,
 	ImportContainer,
 	ImportOperationStatus,
 	importsdk,
 } from "../../../importsdk.ts"
-import { iImportHandler, ImportType } from "./iImportHandler.ts"
+import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 
 export const DiscountCode: iImportHandler = {

@@ -1,5 +1,5 @@
-import { iConfig } from "../interface/iConfig.ts"
-import { isdk } from "../interface/isdk.ts"
+import type { iConfig } from "../interface/iConfig.ts"
+import type { isdk } from "../interface/isdk.ts"
 
 export abstract class basesdk implements isdk {
 	protected _config: iConfig

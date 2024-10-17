@@ -1,7 +1,9 @@
-import { Extension, ExtensionDraft, sdk } from "../deps.ts"
-import hash from "https://deno.land/x/object_hash@2.0.3.1/mod.ts"
-import { iTriggers } from "../messagehandlers/base/iTriggers.ts"
-import { iApiExtension } from "./iApiExtension.ts"
+import type { Extension, ExtensionDraft, sdk } from "../deps.ts"
+import hash from "npm:object-hash@latest"
+
+import type { iTriggers } from "../messagehandlers/base/iTriggers.ts"
+import type { iApiExtension } from "./iApiExtension.ts"
+import type { ErrorResponse } from "npm:@commercetools/importapi-sdk@latest"
 
 export class ApiExtension implements iApiExtension {
 	private _handle: sdk
@@ -15,9 +17,15 @@ export class ApiExtension implements iApiExtension {
 	async register(destination: string): Promise<boolean> {
 		const realdest = destination + "/listener"
 		console.log(`register::ApiExtension`)
-		console.log(`registering API extensions for commercetools project: ${this._handle.config.project_key}`)
+		console.log(
+			`registering API extensions for commercetools project: ${this._handle.config.project_key}`,
+		)
 		for (const trigger of this._triggers) {
-			console.log(`${trigger.actions.join(", ").toLowerCase()} on ${trigger.resource}`)
+			console.log(
+				`${
+					trigger.actions.join(", ").toLowerCase()
+				} on ${trigger.resource}`,
+			)
 		}
 		console.log(`sending to ${realdest}`)
 		await this.registerExtensions(realdest, this._triggers)
@@ -47,7 +55,8 @@ export class ApiExtension implements iApiExtension {
 
 			return undefined
 		} catch (_error) {
-			if (_error.statusCode === 404) { // extension does not exist yet
+			const error: ErrorResponse = _error as ErrorResponse
+			if (error.statusCode === 404) { // extension does not exist yet
 				const hext = await this._handle
 					.root()
 					.extensions()

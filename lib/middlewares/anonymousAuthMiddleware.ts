@@ -1,6 +1,6 @@
-import { AnonymousAuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2/dist/declarations/src/types/sdk.d.ts"
-import { iConfig } from "../interface/iConfig.ts"
-import { iOptions } from "../interface/isdk.ts"
+import type { AnonymousAuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2@latest/dist/declarations/src/types/sdk.d.ts"
+import type { iConfig } from "../interface/iConfig.ts"
+import type { iOptions } from "../interface/isdk.ts"
 
 export const anonymousAuthMiddleware = (
 	config: iConfig,

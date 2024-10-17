@@ -1,4 +1,4 @@
-import { iApiExtension } from "../ct/iApiExtension.ts"
+import type { iApiExtension } from "../ct/iApiExtension.ts"
 import { DenoMessageHandler } from "../messagehandlers/DenoMessageHandler.ts"
 
 export class DenoListenServer {
@@ -10,7 +10,7 @@ export class DenoListenServer {
 		this._messageHandler = new DenoMessageHandler(apiExtension.getTriggers())
 	}
 
-	public listen( port=8080): Promise<void> {
+	public listen(port = 8080): Promise<void> {
 		const ac = new AbortController()
 		Deno.addSignalListener("SIGINT", () => ac.abort())
 		const path = "something"
@@ -30,6 +30,4 @@ export class DenoListenServer {
 		})
 		return server.finished
 	}
-	
-	
 }

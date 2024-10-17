@@ -1,7 +1,7 @@
-import { iConfig } from "./interface/iConfig.ts"
+import type { iConfig } from "./interface/iConfig.ts"
 import { ClientBuilder } from "npm:@commercetools/sdk-client-v2@latest"
 import {
-	ApiRoot,
+	type ApiRoot,
 	createApiBuilderFromCtpClient,
 } from "npm:@commercetools/importapi-sdk@latest"
 import { loglevel } from "./interface/iLogger.ts"

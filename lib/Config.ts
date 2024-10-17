@@ -1,6 +1,5 @@
-import { config as dotEnvConfig } from "https://deno.land/x/dotenv@v1.0.1/mod.ts"
-import { iConfig } from "./interface/iConfig.ts"
-
+import { loadSync } from "jsr:@std/dotenv@0.225.2"
+import type { iConfig } from "./interface/iConfig.ts"
 
 export class Config {
 	private _config: iConfig
@@ -15,10 +14,13 @@ export class Config {
 		if (options === undefined) {
 			if (Deno.env.get("DENO_DEPLOYMENT_ID") === undefined) {
 				if (!Config.checkEnvFile(".env")) {
-					console.log(`%cNo .env file found, make sure a .env file with client information is present in the root`, "color: red")
+					console.log(
+						`%cNo .env file found, make sure a .env file with client information is present in the root`,
+						"color: red",
+					)
 					Deno.exit()
 				}
-				dotEnvConfig({ export: true }) // here we load the .env file
+				loadSync({ export: true }) // here we load the .env file
 			}
 			// check if we have all the env variables we need, trow an error when one is missing
 			Config.checkApiURL()
@@ -75,7 +77,10 @@ export class Config {
 			file.close()
 			return true
 		} catch (_error) {
-			console.log(`%cenvironment file ${filename} is not found `, "color: red")
+			console.log(
+				`%cenvironment file ${filename} is not found `,
+				"color: red",
+			)
 			Deno.exit()
 		}
 	}

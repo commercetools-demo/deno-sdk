@@ -1,5 +1,5 @@
-import { iApiExtension } from "./ct/iApiExtension.ts"
-import { iProxy } from "./proxy/iProxy.ts"
+import type { iApiExtension } from "./ct/iApiExtension.ts"
+import type { iProxy } from "./proxy/iProxy.ts"
 import { DenoListenServer } from "./server/DenoListenServer.ts"
 
 export class DenoApiExtensionsListener {

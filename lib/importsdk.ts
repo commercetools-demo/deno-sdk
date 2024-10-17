@@ -1,10 +1,10 @@
-import { iConfig } from "./interface/iConfig.ts"
+import type { iConfig } from "./interface/iConfig.ts"
 import { loglevel } from "./interface/iLogger.ts"
-import { isdk } from "./interface/isdk.ts"
-import { ByProjectKeyRequestBuilder } from "npm:@commercetools/importapi-sdk@latest/dist/declarations/src/generated/client/by-project-key-request-builder"
+import type { isdk } from "./interface/isdk.ts"
+import type { ByProjectKeyRequestBuilder } from "npm:@commercetools/importapi-sdk@latest/dist/declarations/src/generated/client/by-project-key-request-builder"
 import { Config } from "./Config.ts"
 import { basesdk } from "./abstract/basesdk.ts"
-import { ApiRoot as importRoot } from "./importClient.ts"
+import type { ApiRoot as importRoot } from "./importClient.ts"
 import { importClient } from "./importClient.ts"
 import { checkPermissions } from "./permissions.ts"
 
@@ -28,7 +28,10 @@ export class importsdk extends basesdk implements isdk {
 			checkPermissions()
 			const config = Config.init(manualconfig)
 			if (config.import_url === undefined) {
-				console.log(`%cNo import url specified in config, should be like: CTP_IMP_URL=https://import.europe-west1.gcp.commercetools.com/`, "color: red")
+				console.log(
+					`%cNo import url specified in config, should be like: CTP_IMP_URL=https://import.europe-west1.gcp.commercetools.com/`,
+					"color: red",
+				)
 				Deno.exit()
 			}
 			const apiRoot: importRoot = new importClient(config, verbose)

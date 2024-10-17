@@ -1,12 +1,11 @@
-import { iConfig } from "./interface/iConfig.ts"
+import type { iConfig } from "./interface/iConfig.ts"
 import { loglevel } from "./interface/iLogger.ts"
-import { iOptions, isdk } from "./interface/isdk.ts"
-import { ByProjectKeyRequestBuilder } from "npm:@commercetools/platform-sdk@latest/dist/declarations/src/generated/client/by-project-key-request-builder"
+import type { iOptions, isdk } from "./interface/isdk.ts"
+import type { ByProjectKeyRequestBuilder } from "npm:@commercetools/platform-sdk@latest/dist/declarations/src/generated/client/by-project-key-request-builder"
 import { Config } from "./Config.ts"
 import { basesdk } from "./abstract/basesdk.ts"
 import { sdkClient } from "./sdkClient.ts"
-import { ApiRoot as sdkRoot } from "./sdkClient.ts"
-
+import type { ApiRoot as sdkRoot } from "./sdkClient.ts"
 
 export class sdk extends basesdk implements isdk {
 	private static instance: sdk | undefined

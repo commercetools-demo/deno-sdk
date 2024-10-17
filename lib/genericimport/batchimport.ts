@@ -1,7 +1,7 @@
-import { wait } from "jsr:@denosaurs/wait";
+import { wait } from "jsr:@denosaurs/wait@0.2.2"
 import { getContainerStatus, getOrCreateContainer } from "./containers.ts"
-import { ImportOperationStatus, importsdk } from "../../importsdk.ts"
-import { TypedImporter } from "./importers/iImportHandler.ts"
+import { type ImportOperationStatus, importsdk } from "../../importsdk.ts"
+import type { TypedImporter } from "./importers/iImportHandler.ts"
 
 // deno-lint-ignore require-await
 async function timeout(ms: number) {
@@ -14,8 +14,8 @@ async function waitForImportOperationToComplete(
 	pollinterval: number,
 ) {
 	const spinner = wait({
-		text: 'Waiting for the import operation to complete',
-		color: "green"
+		text: "Waiting for the import operation to complete",
+		color: "green",
 	}).start()
 	for (const status of operations) {
 		let result = await getContainerStatus(importer, status.operationId!) // check the import operation
@@ -33,7 +33,12 @@ async function waitForImportOperationToComplete(
 		const identifier = (result.resourceKey !== undefined)
 			? result.resourceKey
 			: result.id
-		console.log(`%c${icon} Item: %c${identifier} %cis ${message}`, "color: black", "color: blue", "color: black")
+		console.log(
+			`%c${icon} Item: %c${identifier} %cis ${message}`,
+			"color: black",
+			"color: blue",
+			"color: black",
+		)
 	}
 }
 
@@ -47,7 +52,7 @@ function batchReduce<T>(arr: T[], batchSize: number): T[][] {
 
 export async function importbatch(
 	containername: string,
-// deno-lint-ignore no-explicit-any
+	// deno-lint-ignore no-explicit-any
 	data: any[],
 	importFunction: TypedImporter,
 	pollinterval = 3000,

@@ -1,5 +1,5 @@
-import { AuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2/dist/declarations/src/types/sdk.d.ts"
-import { iConfig } from "../interface/iConfig.ts"
+import type { AuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2@latest/dist/declarations/src/types/sdk.d.ts"
+import type { iConfig } from "../interface/iConfig.ts"
 
 export const ClientCredentialsAuthMiddleware = (
 	config: iConfig,

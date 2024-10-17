@@ -1,5 +1,5 @@
-import { Product, ProductUpdateAction } from "../../deps.ts"
-import {
+import type { Product, ProductUpdateAction } from "../../deps.ts"
+import type {
 	actionType,
 	errorMessage,
 	iHandledResponse,

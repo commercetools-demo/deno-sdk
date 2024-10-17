@@ -9,8 +9,8 @@ import { Type } from "./importers/typeimporter.ts"
 import { Category } from "./importers/categoryimporter.ts"
 import { Customer } from "./importers/customerimporter.ts"
 import {
-	iImportHandler,
-	ImportResource,
+	type iImportHandler,
+	type ImportResource,
 	ImportType,
 } from "./importers/iImportHandler.ts"
 import { Product } from "./importers/productimporter.ts"

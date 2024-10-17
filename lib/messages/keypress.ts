@@ -1,4 +1,4 @@
-import { keypress, KeyPressEvent } from "./deps.ts"
+import { keypress, type KeyPressEvent } from "./deps.ts"
 
 export class keyPress {
 	public canceled = false

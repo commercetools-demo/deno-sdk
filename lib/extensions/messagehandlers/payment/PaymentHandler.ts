@@ -1,5 +1,5 @@
 import { BaseHandler } from "../base/BaseHandler.ts"
-import {
+import type {
 	iPaymentMessage,
 	iPaymentMessageHandler,
 	iPaymentResponse,
@@ -15,7 +15,9 @@ export class PaymentHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a PaymentMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	override async handleMessage(msg: iPaymentMessage): Promise<iPaymentResponse> {
+	override async handleMessage(
+		msg: iPaymentMessage,
+	): Promise<iPaymentResponse> {
 		const result = await super.handleMessage(msg) as iPaymentResponse
 		return result
 	}

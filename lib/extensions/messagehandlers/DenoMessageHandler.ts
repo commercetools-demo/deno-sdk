@@ -1,4 +1,4 @@
-import {
+import type {
 	BusinessUnit,
 	Cart,
 	Customer,
@@ -10,8 +10,8 @@ import {
 	ReferenceTypeId,
 	StagedQuote,
 } from "../deps.ts"
-import { iHandledResponse, responseCode } from "./base/iBaseHandler.ts"
-import { iTriggers } from "./base/iTriggers.ts"
+import { type iHandledResponse, responseCode } from "./base/iBaseHandler.ts"
+import type { iTriggers } from "./base/iTriggers.ts"
 
 type actionType = "Update" | "Create"
 
@@ -54,19 +54,26 @@ export class DenoMessageHandler {
 			const actionResponse = await this.handlePostAction(body)
 			//console.log(actionResponse)
 			if (actionResponse === undefined) {
-				const response = new Response("", {status: 200})
+				const response = new Response("", { status: 200 })
 				return response
 			}
 			if (actionResponse.result.code === responseCode.ERROR) {
-				const response = new Response(JSON.stringify(actionResponse.result.errors), {status: actionResponse.result.code})
+				const response = new Response(
+					JSON.stringify(actionResponse.result.errors),
+					{ status: actionResponse.result.code },
+				)
 				return response
 			}
-			const responsebody = (actionResponse.result.actions?.length) ? JSON.stringify({actions: actionResponse.result.actions}) : ""
+			const responsebody = (actionResponse.result.actions?.length)
+				? JSON.stringify({ actions: actionResponse.result.actions })
+				: ""
 			//console.log(responsebody)
-			const response = new Response(responsebody, {status: actionResponse.result.code})
+			const response = new Response(responsebody, {
+				status: actionResponse.result.code,
+			})
 			return response
 		}
-		return new Response("error", {status: 500, statusText: "not allowed"})
+		return new Response("error", { status: 500, statusText: "not allowed" })
 	}
 
 	private async handlePostAction(

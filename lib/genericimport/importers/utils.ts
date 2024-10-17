@@ -1,4 +1,4 @@
-import { ImportResource, ImportType } from "./iImportHandler.ts"
+import type { ImportResource, ImportType } from "./iImportHandler.ts"
 
 export function test(
 	obj: ImportResource,

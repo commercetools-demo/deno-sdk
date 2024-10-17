@@ -1,11 +1,11 @@
-import {
+import type {
 	ImportContainer,
 	ImportOperationStatus,
 	importsdk,
 	OrderImport,
 	OrderPatchImport,
 } from "../../../importsdk.ts"
-import { iImportHandler, ImportType } from "./iImportHandler.ts"
+import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 
 export const OrderPatches: iImportHandler = {

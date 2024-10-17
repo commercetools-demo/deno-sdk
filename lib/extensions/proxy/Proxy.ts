@@ -1,4 +1,4 @@
-import { iProxy, iProxyConfig } from "./iProxy.ts"
+import type { iProxy, iProxyConfig } from "./iProxy.ts"
 
 export class Proxy implements iProxy {
 	private _config: iProxyConfig

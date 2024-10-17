@@ -1,10 +1,10 @@
-import {
+import type {
 	ImportContainer,
 	ImportOperationStatus,
 	importsdk,
 	StandalonePriceImport,
 } from "../../../importsdk.ts"
-import { iImportHandler, ImportType } from "./iImportHandler.ts"
+import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 
 export const StandalonePrice: iImportHandler = {

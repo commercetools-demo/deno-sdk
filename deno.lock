@@ -13,6 +13,7 @@
     "jsr:@std/bytes@1": "1.0.2",
     "jsr:@std/bytes@^1.0.2": "1.0.2",
     "jsr:@std/crypto@1": "1.0.3",
+    "jsr:@std/dotenv@*": "0.225.2",
     "jsr:@std/encoding@1": "1.0.5",
     "jsr:@std/encoding@^1.0.5": "1.0.5",
     "jsr:@std/fmt@1": "1.0.1",
@@ -26,6 +27,7 @@
     "npm:@commercetools/sdk-client-v2@*": "2.5.0",
     "npm:@commercetools/sdk-client-v2@latest": "2.5.0",
     "npm:@types/node@*": "22.5.4",
+    "npm:object-hash@*": "3.0.0",
     "npm:path-to-regexp@6.2.1": "6.2.1"
   },
   "jsr": {
@@ -91,6 +93,9 @@
     },
     "@std/crypto@1.0.3": {
       "integrity": "a2a32f51ddef632d299e3879cd027c630dcd4d1d9a5285d6e6788072f4e51e7f"
+    },
+    "@std/dotenv@0.225.2": {
+      "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
     },
     "@std/encoding@1.0.5": {
       "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
@@ -205,6 +210,9 @@
       "dependencies": [
         "whatwg-url"
       ]
+    },
+    "object-hash@3.0.0": {
+      "integrity": "sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw=="
     },
     "path-to-regexp@6.2.1": {
       "integrity": "sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw=="

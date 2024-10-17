@@ -1,5 +1,5 @@
-import { Order, OrderUpdateAction } from "../../deps.ts"
-import {
+import type { Order, OrderUpdateAction } from "../../deps.ts"
+import type {
 	actionType,
 	errorMessage,
 	iHandledResponse,

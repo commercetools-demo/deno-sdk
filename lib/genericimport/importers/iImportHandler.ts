@@ -1,4 +1,4 @@
-import {
+import type {
 	_ImportResource,
 	ImportContainer,
 	ImportOperationStatus,

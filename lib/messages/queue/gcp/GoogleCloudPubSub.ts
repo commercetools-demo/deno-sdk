@@ -1,7 +1,7 @@
 import { delay } from "../../../utils/utils.ts"
-import { resourceFilter } from "../../filters.ts"
+import type { resourceFilter } from "../../filters.ts"
 import { keyPress } from "../../keypress.ts"
-import { GoogleCloudPubSubOptions } from "../queueOptions.ts"
+import type { GoogleCloudPubSubOptions } from "../queueOptions.ts"
 
 export class GoogleCloudPubSub {
 	private options: GoogleCloudPubSubOptions

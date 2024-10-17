@@ -1,7 +1,7 @@
 import {
-	iHandledResponse,
-	iMessageHandler,
-	iReferenceMessage,
+	type iHandledResponse,
+	type iMessageHandler,
+	type iReferenceMessage,
 	responseCode,
 } from "./iBaseHandler.ts"
 

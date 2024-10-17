@@ -1,7 +1,7 @@
-import { spinners, wait } from "jsr:@denosaurs/wait";
+import { spinners, wait } from "jsr:@denosaurs/wait@0.2.2"
 import { delay } from "../../../utils/utils.ts"
-import { iNgrokConfig } from "./iNgrokConfig.ts"
-import { iProxy, iProxyConfig } from "../iProxy.ts"
+import type { iNgrokConfig } from "./iNgrokConfig.ts"
+import type { iProxy, iProxyConfig } from "../iProxy.ts"
 
 export class Ngrok implements iProxy {
 	private subprocess: Deno.ChildProcess | undefined = undefined
@@ -59,8 +59,12 @@ export class Ngrok implements iProxy {
 			instance.subprocess = await command.spawn()
 			//console.log((await instance.subprocess.status).code, (await instance.subprocess.status).code)
 		} catch (_error) {
-			console.log(`Could not start NGROK, make sure it is installed, see: https://ngrok.com/download`)
-			console.log("also provide a NGROK_API_KEY and NGROK_API_ENDPOINT in your .env file")
+			console.log(
+				`Could not start NGROK, make sure it is installed, see: https://ngrok.com/download`,
+			)
+			console.log(
+				"also provide a NGROK_API_KEY and NGROK_API_ENDPOINT in your .env file",
+			)
 			Deno.exit(-1)
 		}
 		console.log("NGROK started")
@@ -91,7 +95,7 @@ export class Ngrok implements iProxy {
 	}
 
 	private async destroy(process: Deno.ChildProcess): Promise<void> {
-		console.log('ngrok destroy called')
+		console.log("ngrok destroy called")
 		try {
 			await process.stdout.cancel()
 			await process.stderr.cancel()
@@ -100,10 +104,10 @@ export class Ngrok implements iProxy {
 		} catch (_error) {
 			console.log()
 		}
-		const spinner = wait( {
+		const spinner = wait({
 			text: "Waiting for ngrok to terminate",
-			color: "green", 
-			spinner: spinners.triangle
+			color: "green",
+			spinner: spinners.triangle,
 		}).start()
 		for (let x = 0; x < 100; x++) {
 			if (await this.getPublicUrl() === undefined) break

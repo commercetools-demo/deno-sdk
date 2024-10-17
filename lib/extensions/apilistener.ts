@@ -1,10 +1,10 @@
 import { sdk } from "./deps.ts"
-import { iProxyConfig } from "./proxy/iProxy.ts"
+import type { iProxyConfig } from "./proxy/iProxy.ts"
 import { Proxy } from "./proxy/Proxy.ts"
 import { Ngrok } from "./proxy/ngrok/ngrok.ts"
 import { ApiExtension } from "./ct/ApiExtension.ts"
 //import { ApiExtensionsListener } from "./ApiExtensionsListener.ts"
-import { iTriggers } from "./messagehandlers/base/iTriggers.ts"
+import type { iTriggers } from "./messagehandlers/base/iTriggers.ts"
 import { DenoApiExtensionsListener } from "./DenoExtensionsListener.ts"
 
 export type { iTriggers } from "./messagehandlers/base/iTriggers.ts"

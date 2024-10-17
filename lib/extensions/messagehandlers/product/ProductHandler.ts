@@ -1,5 +1,5 @@
 import { BaseHandler } from "../base/BaseHandler.ts"
-import {
+import type {
 	iProductMessage,
 	iProductMessageHandler,
 	iProductResponse,
@@ -15,7 +15,9 @@ export class ProductHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a ProductMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	override async handleMessage(msg: iProductMessage): Promise<iProductResponse> {
+	override async handleMessage(
+		msg: iProductMessage,
+	): Promise<iProductResponse> {
 		const result = await super.handleMessage(msg) as iProductResponse
 		return result
 	}
