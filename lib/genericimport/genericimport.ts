@@ -1,4 +1,3 @@
-import { ctcol } from "../utils/colors.ts"
 import { importbatch } from "./batchimport.ts"
 import { Inventory } from "./importers/inventoryimporter.ts"
 import { Order } from "./importers/orderimporter.ts"
@@ -51,11 +50,11 @@ export class Importer {
 				entity.entity === importtype
 			)
 			if (callback === undefined) {
-				console.log(ctcol.bgorange(`entity ${importtype} is not supported`))
+				console.log(`%centity ${importtype} is not supported`, "color: red")
 				return
 			}
 			callback.funct.validator(payload, importtype)
-			console.log(ctcol.orange(`importing ${importtype}`))
+			console.log(`%cimporting ${importtype}`, "color: red")
 
 			await importbatch(
 				"my-import-container",
@@ -63,7 +62,7 @@ export class Importer {
 				callback.funct.importer,
 			)
 		} catch (_error) {
-			console.log(ctcol.bgorange(`Error ${_error.message}`))
+			console.log(`%cError ${_error}`, "color: red")
 		}
 	}
 }

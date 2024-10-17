@@ -2,8 +2,9 @@ export * from "./../../clientsdk.ts"
 export {
 	keypress,
 	KeyPressEvent,
-} from "https://deno.land/x/cliffy/keypress/mod.ts"
-export { Application, Router, send } from "https://deno.land/x/oak/mod.ts"
+} from "jsr:@cliffy/keypress@1.0.0-rc.7"
+export { Application } from "jsr:@oak/oak/application";
+export { Router } from "jsr:@oak/oak/router";
 export * from "https://deno.land/x/object_hash/mod.ts"
 export {
 	SpinnerTypes,

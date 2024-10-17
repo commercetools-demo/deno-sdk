@@ -15,7 +15,7 @@ export class CustomerHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a CustomerMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	async handleMessage(msg: iCustomerMessage): Promise<iCustomerResponse> {
+	override async handleMessage(msg: iCustomerMessage): Promise<iCustomerResponse> {
 		const result = await super.handleMessage(msg) as iCustomerResponse
 		return result
 	}
@@ -24,7 +24,7 @@ export class CustomerHandler extends BaseHandler {
 	 * @description Multiple independent handlers can be added to the queue, they are processed in order of addition
 	 * @param handler to add a handler to the queue
 	 */
-	add(handler: iCustomerMessageHandler): CustomerHandler {
+	override add(handler: iCustomerMessageHandler): CustomerHandler {
 		super.add(handler)
 		return this
 	}

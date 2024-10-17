@@ -1,19 +1,18 @@
-import { ctcol } from "../utils/utils.ts"
 import { iApiExtension } from "./ct/iApiExtension.ts"
 import { iProxy } from "./proxy/iProxy.ts"
-import { ListenServer } from "./server/ListenServer.ts"
+import { DenoListenServer } from "./server/DenoListenServer.ts"
 
-export class ApiExtensionsListener {
+export class DenoApiExtensionsListener {
 	private _Proxy: iProxy
 	private _ApiExtension: iApiExtension
 	constructor(proxy: iProxy, apiextension: iApiExtension) {
-		console.log(ctcol.turquoise(`constructor::ApiExtensionsListener`))
+		console.log(`constructor::DenoApiExtensionsListener`)
 		this._Proxy = proxy
 		this._ApiExtension = apiextension
 	}
 
 	public async init(): Promise<boolean> {
-		console.log(ctcol.turquoise(`init::ApiExtensionsListener`))
+		console.log(`init::DenoApiExtensionsListener`)
 		await this._Proxy.init()
 		const url = await this._Proxy.getURL()
 		if (url === undefined) return false
@@ -21,15 +20,15 @@ export class ApiExtensionsListener {
 	}
 
 	public async listen() {
-		console.log(ctcol.turquoise(`listen::ApiExtensionsListener`))
+		console.log(`listen::DenoApiExtensionsListener`)
 		const url = await this._Proxy.getURL()
-		console.log(ctcol.turquoise(`Listening to api extensions on: ${url}`))
-		const server = new ListenServer(this._ApiExtension)
+		console.log(`Listening to api extensions on: ${url}`)
+		const server = new DenoListenServer(this._ApiExtension)
 		await server.listen()
 	}
 
 	public async close(): Promise<boolean> {
-		console.log(ctcol.turquoise(`close::ApiExtensionsListener`))
+		console.log(`close::DenoApiExtensionsListener`)
 		await this._Proxy.close()
 		await this._ApiExtension.unregister()
 		return true

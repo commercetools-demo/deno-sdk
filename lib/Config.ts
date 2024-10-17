@@ -1,6 +1,6 @@
 import { config as dotEnvConfig } from "https://deno.land/x/dotenv@v1.0.1/mod.ts"
 import { iConfig } from "./interface/iConfig.ts"
-import { colors } from "https://deno.land/x/cliffy/ansi/colors.ts"
+
 
 export class Config {
 	private _config: iConfig
@@ -15,11 +15,7 @@ export class Config {
 		if (options === undefined) {
 			if (Deno.env.get("DENO_DEPLOYMENT_ID") === undefined) {
 				if (!Config.checkEnvFile(".env")) {
-					console.log(
-						colors.red(
-							`No .env file found, make sure a .env file with client information is present in the root`,
-						),
-					)
+					console.log(`%cNo .env file found, make sure a .env file with client information is present in the root`, "color: red")
 					Deno.exit()
 				}
 				dotEnvConfig({ export: true }) // here we load the .env file
@@ -79,14 +75,14 @@ export class Config {
 			file.close()
 			return true
 		} catch (_error) {
-			console.log(colors.red(`environment file ${filename} is not found `))
+			console.log(`%cenvironment file ${filename} is not found `, "color: red")
 			Deno.exit()
 		}
 	}
 
 	private static checkEnvValue(value: string): boolean {
 		if (Deno.env.get(value) !== undefined) return true
-		console.log(colors.red(`Environment variable ${value} is missing`))
+		console.log(`%cEnvironment variable ${value} is missing`, "color: red")
 		Deno.exit()
 	}
 

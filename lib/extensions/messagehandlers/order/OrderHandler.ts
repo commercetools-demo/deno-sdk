@@ -15,7 +15,7 @@ export class OrderHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a OrderMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	async handleMessage(msg: iOrderMessage): Promise<iOrderResponse> {
+	override async handleMessage(msg: iOrderMessage): Promise<iOrderResponse> {
 		const result = await super.handleMessage(msg) as iOrderResponse
 		return result
 	}
@@ -24,7 +24,7 @@ export class OrderHandler extends BaseHandler {
 	 * @description Multiple independent handlers can be added to the queue, they are processed in order of addition
 	 * @param handler to add a handler to the queue
 	 */
-	add(handler: iOrderMessageHandler): OrderHandler {
+	override add(handler: iOrderMessageHandler): OrderHandler {
 		super.add(handler)
 		return this
 	}

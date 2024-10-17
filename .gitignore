@@ -9,3 +9,4 @@ sdk.code-workspace
 bench
 test
 deno.lock
+archive

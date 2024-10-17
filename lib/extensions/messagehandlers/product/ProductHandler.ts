@@ -15,7 +15,7 @@ export class ProductHandler extends BaseHandler {
 	 * @param msg the message passed from the api extention. Casted here, to make sure it is a ProductMessage
 	 * @returns a defined response, with codes, actions or errors
 	 */
-	async handleMessage(msg: iProductMessage): Promise<iProductResponse> {
+	override async handleMessage(msg: iProductMessage): Promise<iProductResponse> {
 		const result = await super.handleMessage(msg) as iProductResponse
 		return result
 	}
@@ -24,7 +24,7 @@ export class ProductHandler extends BaseHandler {
 	 * @description Multiple independent handlers can be added to the queue, they are processed in order of addition
 	 * @param handler to add a handler to the queue
 	 */
-	add(handler: iProductMessageHandler): ProductHandler {
+	override add(handler: iProductMessageHandler): ProductHandler {
 		super.add(handler)
 		return this
 	}

@@ -6,7 +6,6 @@ import { Config } from "./Config.ts"
 import { basesdk } from "./abstract/basesdk.ts"
 import { ApiRoot as importRoot } from "./importClient.ts"
 import { importClient } from "./importClient.ts"
-import { colors } from "https://deno.land/x/cliffy/ansi/colors.ts"
 import { checkPermissions } from "./permissions.ts"
 
 export class importsdk extends basesdk implements isdk {
@@ -29,11 +28,7 @@ export class importsdk extends basesdk implements isdk {
 			checkPermissions()
 			const config = Config.init(manualconfig)
 			if (config.import_url === undefined) {
-				console.log(
-					colors.red(
-						`No import url specified in config, should be like: CTP_IMP_URL=https://import.europe-west1.gcp.commercetools.com/`,
-					),
-				)
+				console.log(`%cNo import url specified in config, should be like: CTP_IMP_URL=https://import.europe-west1.gcp.commercetools.com/`, "color: red")
 				Deno.exit()
 			}
 			const apiRoot: importRoot = new importClient(config, verbose)

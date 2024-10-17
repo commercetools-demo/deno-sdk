@@ -1,10 +1,6 @@
-import {
-	SpinnerTypes,
-	TerminalSpinner,
-} from "https://deno.land/x/spinners/mod.ts"
+import { wait } from "jsr:@denosaurs/wait";
 import { getContainerStatus, getOrCreateContainer } from "./containers.ts"
 import { ImportOperationStatus, importsdk } from "../../importsdk.ts"
-import { ctcol } from "../utils/colors.ts"
 import { TypedImporter } from "./importers/iImportHandler.ts"
 
 // deno-lint-ignore require-await
@@ -17,20 +13,18 @@ async function waitForImportOperationToComplete(
 	operations: ImportOperationStatus[],
 	pollinterval: number,
 ) {
-	//console.log('Waiting for the import operation to complete')
-	const terminalSpinner = new TerminalSpinner({
-		text: "Waiting for the import operation to complete", // telling the user what is going on
-		color: "green", // see colors in util.ts
-		spinner: SpinnerTypes.windows, // check the SpinnerTypes - see import
-	})
-	terminalSpinner.start()
+	const spinner = wait({
+		text: 'Waiting for the import operation to complete',
+		color: "green"
+	}).start()
 	for (const status of operations) {
 		let result = await getContainerStatus(importer, status.operationId!) // check the import operation
 		while (result.state === "processing") {
 			result = await getContainerStatus(importer, status.operationId!)
 			await timeout(pollinterval)
 		}
-		if (terminalSpinner.isSpinning()) terminalSpinner.stop() // as soon as we have a first result, terminate the spinner
+		if (spinner.isSpinning) spinner.succeed(`Import completed`)
+
 		const message =
 			(result.state === "rejected" || result.state === "validationFailed")
 				? status.errors
@@ -39,7 +33,7 @@ async function waitForImportOperationToComplete(
 		const identifier = (result.resourceKey !== undefined)
 			? result.resourceKey
 			: result.id
-		console.log(`${icon} Item: ${ctcol.blue(identifier)} is ${message}`)
+		console.log(`%c${icon} Item: %c${identifier} %cis ${message}`, "color: black", "color: blue", "color: black")
 	}
 }
 
@@ -64,9 +58,7 @@ export async function importbatch(
 
 	const operations: ImportOperationStatus[] = []
 	for (const batch of batches) {
-		console.log(
-			`Importing a batch of ${ctcol.turquoise(batch.length + "")} items`,
-		)
+		console.log(`Importing a batch of ${batch.length + ""} items`)
 		const op = await importFunction(handle, importContainer, batch)
 		operations.push(...op)
 	}

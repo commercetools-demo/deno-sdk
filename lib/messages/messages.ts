@@ -2,7 +2,6 @@ import { MessagePagedQueryResponse, sdk } from "./deps.ts"
 import { keyPress } from "./keypress.ts"
 import { filterMessages, filterOption, resourceFilter } from "./filters.ts"
 import { eventEmitter } from "./eventEmitter.ts"
-import { ctcol } from "../utils/colors.ts"
 import { delay } from "../utils/utils.ts"
 import {
 	AWSEventBridgeOptions,
@@ -34,11 +33,7 @@ export class listener {
 	async pull(interval = 1000) {
 		const handle = sdk.init()
 		const filters = (this.filter) ? this.showFilter()! : "all"
-		console.log(
-			`listening to ${ctcol.orange(filters)} messages in project: ${
-				ctcol.blue(handle.config.project_key)
-			} `,
-		)
+		console.log(`listening to ${filters} messages in project: ${handle.config.project_key}`)
 		await this.enableMessages()
 		const keystate = new keyPress()
 		let msgCount = await this.peek()
@@ -64,13 +59,7 @@ export class listener {
 
 	private async enableMessages(): Promise<boolean> {
 		const handle = sdk.init()
-		console.log(
-			ctcol.gray(
-				`Enabling messages for project ${
-					ctcol.blue(handle.config.project_key)
-				}`,
-			),
-		)
+		console.log(`Enabling messages for project %c${handle.config.project_key}`, "color: blue")
 		const currentproject = await handle
 			.root()
 			.get()
@@ -100,13 +89,7 @@ export class listener {
 
 	private async disableMessages(): Promise<boolean> {
 		const handle = sdk.init()
-		console.log(
-			ctcol.gray(
-				`Disabling messages for project ${
-					ctcol.blue(handle.config.project_key)
-				}`,
-			),
-		)
+		console.log(`Disabling messages for project ${handle.config.project_key}`)
 		const currentproject = await handle
 			.root()
 			.get()
