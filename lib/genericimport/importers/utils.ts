@@ -7,9 +7,7 @@ export function test(
 ): boolean {
 	if (property in obj) return true
 	throw new Error(
-		`${type} Missing required attribute ${property} in obj ${
-			JSON.stringify(obj)
-		}`,
+		`${type} Missing required attribute ${property} in obj ${JSON.stringify(obj)}`,
 		{ cause: "validation" },
 	)
 }

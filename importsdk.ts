@@ -5,4 +5,4 @@ export { ApiRoot as importRoot, importClient } from "./lib/importClient.ts"
 export { importsdk } from "./lib/importsdk.ts"
 export { Importer, ImportType } from "./lib/genericimport/genericimport.ts"
 
-export * from "npm:@commercetools/importapi-sdk@latest"
+export * from "@commercetools/importapi-sdk"

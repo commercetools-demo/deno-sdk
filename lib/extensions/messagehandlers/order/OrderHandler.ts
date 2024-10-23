@@ -1,10 +1,6 @@
 import { BaseHandler } from "../base/BaseHandler.ts"
-import type {
-	iOrderMessage,
-	iOrderMessageHandler,
-	iOrderResponse,
-} from "./iOrderHandler.ts"
-export type { OrderUpdateAction } from "../../deps.ts"
+import type { iOrderMessage, iOrderMessageHandler, iOrderResponse } from "./iOrderHandler.ts"
+export type { OrderUpdateAction } from "../../../../clientsdk.ts"
 
 /**
  * @description the OrderHandler handles an incoming message and can process it, it returns a defined output

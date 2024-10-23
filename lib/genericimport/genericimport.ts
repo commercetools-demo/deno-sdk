@@ -8,11 +8,7 @@ import { StandalonePrice } from "./importers/standalonepriceimporter.ts"
 import { Type } from "./importers/typeimporter.ts"
 import { Category } from "./importers/categoryimporter.ts"
 import { Customer } from "./importers/customerimporter.ts"
-import {
-	type iImportHandler,
-	type ImportResource,
-	ImportType,
-} from "./importers/iImportHandler.ts"
+import { type iImportHandler, type ImportResource, ImportType } from "./importers/iImportHandler.ts"
 import { Product } from "./importers/productimporter.ts"
 import { DiscountCode } from "./importers/discountcodeimporter.ts"
 import { ProductDraft } from "./importers/productdraftimporter.ts"
@@ -46,9 +42,7 @@ const entityFunctionMap: entityFunction[] = [
 export class Importer {
 	static async import(importtype: ImportType, payload: ImportResource[]) {
 		try {
-			const callback = entityFunctionMap.find((entity) =>
-				entity.entity === importtype
-			)
+			const callback = entityFunctionMap.find((entity) => entity.entity === importtype)
 			if (callback === undefined) {
 				console.log(`%centity ${importtype} is not supported`, "color: red")
 				return

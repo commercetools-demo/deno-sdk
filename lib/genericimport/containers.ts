@@ -1,8 +1,4 @@
-import type {
-	ImportContainer,
-	ImportOperation,
-	importsdk,
-} from "../../importsdk.ts"
+import type { ImportContainer, ImportOperation, importsdk } from "../../importsdk.ts"
 
 export async function getContainers(
 	importer: importsdk,

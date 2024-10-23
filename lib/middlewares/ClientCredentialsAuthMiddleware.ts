@@ -1,4 +1,6 @@
-import type { AuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2@latest/dist/declarations/src/types/sdk.d.ts"
+//import type { AuthMiddlewareOptions } from "npm:@commercetools/sdk-client-v2@latest/dist/declarations/src/types/sdk.d.ts"
+import type { AuthMiddlewareOptions } from "@commercetools/ts-client"
+
 import type { iConfig } from "../interface/iConfig.ts"
 
 export const ClientCredentialsAuthMiddleware = (
@@ -11,6 +13,6 @@ export const ClientCredentialsAuthMiddleware = (
 		},
 		host: config.auth_url,
 		projectKey: config.project_key,
-		fetch: fetch,
+		httpClient: fetch,
 	}
 }

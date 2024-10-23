@@ -1,10 +1,5 @@
-import type { Customer, CustomerUpdateAction } from "../../deps.ts"
-import type {
-	actionType,
-	errorMessage,
-	iHandledResponse,
-	responseCode,
-} from "../base/iBaseHandler.ts"
+import type { Customer, CustomerUpdateAction } from "../../../../clientsdk.ts"
+import type { actionType, errorMessage, iHandledResponse, responseCode } from "../base/iBaseHandler.ts"
 
 export { responseCode } from "../base/iBaseHandler.ts"
 

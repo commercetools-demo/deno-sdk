@@ -1,4 +1,4 @@
-import { spinners, wait } from "jsr:@denosaurs/wait@0.2.2"
+import { spinners, wait } from "@denosaurs/wait"
 import { delay } from "../../../utils/utils.ts"
 import type { iNgrokConfig } from "./iNgrokConfig.ts"
 import type { iProxy, iProxyConfig } from "../iProxy.ts"

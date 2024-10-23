@@ -1,10 +1,6 @@
 import { BaseHandler } from "../base/BaseHandler.ts"
-import type {
-	iCustomerMessage,
-	iCustomerMessageHandler,
-	iCustomerResponse,
-} from "./iCustomerHandler.ts"
-export type { CustomerUpdateAction } from "../../deps.ts"
+import type { iCustomerMessage, iCustomerMessageHandler, iCustomerResponse } from "./iCustomerHandler.ts"
+export type { CustomerUpdateAction } from "../../../../clientsdk.ts"
 
 /**
  * @description the CustomerHandler handles an incoming message and can process it, it returns a defined output

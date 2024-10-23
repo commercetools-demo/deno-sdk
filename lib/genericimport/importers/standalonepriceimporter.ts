@@ -1,9 +1,4 @@
-import type {
-	ImportContainer,
-	ImportOperationStatus,
-	importsdk,
-	StandalonePriceImport,
-} from "../../../importsdk.ts"
+import type { ImportContainer, ImportOperationStatus, importsdk, StandalonePriceImport } from "../../../importsdk.ts"
 import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 

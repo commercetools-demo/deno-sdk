@@ -4,8 +4,10 @@ export { loglevel } from "./lib/interface/iLogger.ts"
 export { ApiRoot as sdkRoot, sdkClient } from "./lib/sdkClient.ts"
 export { sdk } from "./lib/sdk.ts"
 
-export * from "npm:@commercetools/sdk-client-v2@latest"
-export * from "npm:@commercetools/platform-sdk@latest"
+//export * from "npm:@commercetools/sdk-client-v2@latest"
+export * from "@commercetools/ts-client"
+//export * from "npm:@commercetools/platform-sdk@latest"
+export * from "@commercetools/platform-sdk"
 export type {
 	ClientRequest,
 	ClientResponse,
@@ -13,9 +15,8 @@ export type {
 	MethodType,
 	Middleware,
 	QueryParam,
-	UpdateAction,
 	VariableMap,
-} from "npm:@commercetools/sdk-client-v2@latest"
+} from "@commercetools/ts-client"
 /**
  * commercetools sdk wrapper for the sdk client
  * @author Willem Haring

@@ -10,7 +10,7 @@ import type {
 	ReferenceTypeId,
 	StagedQuote,
 	UpdateAction,
-} from "../../deps.ts"
+} from "../../../../clientsdk.ts"
 
 export type actionType = "Update" | "Create"
 

@@ -1,4 +1,4 @@
-import type { Message } from "./deps.ts"
+import type { Message } from "../../clientsdk.ts"
 
 export enum EventTypes {
 	All = "All",
@@ -30,12 +30,9 @@ export enum EventTypes {
 	BusinessUnitAddressAdded = "BusinessUnitAddressAdded",
 	BusinessUnitAddressChanged = "BusinessUnitAddressChanged",
 	BusinessUnitAddressCustomFieldAdded = "BusinessUnitAddressCustomFieldAdded",
-	BusinessUnitAddressCustomFieldChanged =
-		"BusinessUnitAddressCustomFieldChanged",
-	BusinessUnitAddressCustomFieldRemoved =
-		"BusinessUnitAddressCustomFieldRemoved",
-	BusinessUnitAddressCustomTypeRemoved =
-		"BusinessUnitAddressCustomTypeRemoved",
+	BusinessUnitAddressCustomFieldChanged = "BusinessUnitAddressCustomFieldChanged",
+	BusinessUnitAddressCustomFieldRemoved = "BusinessUnitAddressCustomFieldRemoved",
+	BusinessUnitAddressCustomTypeRemoved = "BusinessUnitAddressCustomTypeRemoved",
 	BusinessUnitAddressCustomTypeSet = "BusinessUnitAddressCustomTypeSet",
 	BusinessUnitAddressRemoved = "BusinessUnitAddressRemoved",
 	BusinessUnitAddress = "BusinessUnitAddress",
@@ -64,10 +61,8 @@ export enum EventTypes {
 	BusinessUnitCustomTypeSet = "BusinessUnitCustomTypeSet",
 	BusinessUnitCustomType = "BusinessUnitCustomType",
 
-	BusinessUnitDefaultBillingAddressSet =
-		"BusinessUnitDefaultBillingAddressSet",
-	BusinessUnitDefaultShippingAddressSet =
-		"BusinessUnitDefaultShippingAddressSet",
+	BusinessUnitDefaultBillingAddressSet = "BusinessUnitDefaultBillingAddressSet",
+	BusinessUnitDefaultShippingAddressSet = "BusinessUnitDefaultShippingAddressSet",
 	BusinessUnitDeleted = "BusinessUnitDeleted",
 	BusinessUnitNameChanged = "BusinessUnitNameChanged",
 	BusinessUnitParentChanged = "BusinessUnitParentChanged",
@@ -209,10 +204,8 @@ export enum EventTypes {
 	ProductSelectionProductAdded = "ProductSelectionProductAdded",
 	ProductSelectionProductExcluded = "ProductSelectionProductExcluded",
 	ProductSelectionProductRemoved = "ProductSelectionProductRemoved",
-	ProductSelectionVariantExclusionChanged =
-		"ProductSelectionVariantExclusionChanged",
-	ProductSelectionVariantSelectionChanged =
-		"ProductSelectionVariantSelectionChanged",
+	ProductSelectionVariantExclusionChanged = "ProductSelectionVariantExclusionChanged",
+	ProductSelectionVariantSelectionChanged = "ProductSelectionVariantSelectionChanged",
 	ProductSlugChanged = "ProductSlugChanged",
 	ProductStateTransition = "ProductStateTransition",
 	ProductUnpublished = "ProductUnpublished",

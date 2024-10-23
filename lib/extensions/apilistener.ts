@@ -1,4 +1,4 @@
-import { sdk } from "./deps.ts"
+import { sdk } from "../../clientsdk.ts"
 import type { iProxyConfig } from "./proxy/iProxy.ts"
 import { Proxy } from "./proxy/Proxy.ts"
 import { Ngrok } from "./proxy/ngrok/ngrok.ts"
@@ -16,26 +16,11 @@ export {
 	ProductHandler,
 } from "./messagehandlers/messagehandlers.ts"
 export { responseCode } from "./messagehandlers/base/iBaseHandler.ts"
-export type {
-	iCustomerMessage,
-	iCustomerResponse,
-} from "./messagehandlers/customer/iCustomerHandler.ts"
-export type {
-	iCartMessage,
-	iCartResponse,
-} from "./messagehandlers/cart/iCartHandler.ts"
-export type {
-	iOrderMessage,
-	iOrderResponse,
-} from "./messagehandlers/order/iOrderHandler.ts"
-export type {
-	iPaymentMessage,
-	iPaymentResponse,
-} from "./messagehandlers/payment/iPaymentHandler.ts"
-export type {
-	iProductMessage,
-	iProductResponse,
-} from "./messagehandlers/product/iProductHandler.ts"
+export type { iCustomerMessage, iCustomerResponse } from "./messagehandlers/customer/iCustomerHandler.ts"
+export type { iCartMessage, iCartResponse } from "./messagehandlers/cart/iCartHandler.ts"
+export type { iOrderMessage, iOrderResponse } from "./messagehandlers/order/iOrderHandler.ts"
+export type { iPaymentMessage, iPaymentResponse } from "./messagehandlers/payment/iPaymentHandler.ts"
+export type { iProductMessage, iProductResponse } from "./messagehandlers/product/iProductHandler.ts"
 
 export class apilistener {
 	private _handle: sdk

@@ -25,14 +25,11 @@ async function waitForImportOperationToComplete(
 		}
 		if (spinner.isSpinning) spinner.succeed(`Import completed`)
 
-		const message =
-			(result.state === "rejected" || result.state === "validationFailed")
-				? status.errors
-				: result.state
+		const message = (result.state === "rejected" || result.state === "validationFailed")
+			? status.errors
+			: result.state
 		const icon = (result.state === "imported") ? "✅" : "❌"
-		const identifier = (result.resourceKey !== undefined)
-			? result.resourceKey
-			: result.id
+		const identifier = (result.resourceKey !== undefined) ? result.resourceKey : result.id
 		console.log(
 			`%c${icon} Item: %c${identifier} %cis ${message}`,
 			"color: black",

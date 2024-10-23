@@ -1,10 +1,6 @@
-import { type MessagePagedQueryResponse, sdk } from "./deps.ts"
+import { type MessagePagedQueryResponse, sdk } from "../../clientsdk.ts"
 import { keyPress } from "./keypress.ts"
-import {
-	filterMessages,
-	type filterOption,
-	type resourceFilter,
-} from "./filters.ts"
+import { filterMessages, type filterOption, type resourceFilter } from "./filters.ts"
 import { eventEmitter } from "./eventEmitter.ts"
 import { delay } from "../utils/utils.ts"
 import {
@@ -18,7 +14,7 @@ import {
 	type GoogleCloudPubSubOptions,
 } from "./queue/queueOptions.ts"
 export { EventTypes } from "./eventEmitter.ts"
-export type { Message } from "./deps.ts"
+export type { Message } from "../../clientsdk.ts"
 export type EventMessage<T> = CustomEventInit<T>
 
 export class listener {
@@ -89,9 +85,7 @@ export class listener {
 					},
 				})
 				.execute()
-			return (newproject.statusCode && newproject.statusCode < 200)
-				? true
-				: false
+			return (newproject.statusCode && newproject.statusCode < 200) ? true : false
 		}
 		return true
 	}
@@ -119,9 +113,7 @@ export class listener {
 					},
 				})
 				.execute()
-			return (newproject.statusCode && newproject.statusCode < 200)
-				? true
-				: false
+			return (newproject.statusCode && newproject.statusCode < 200) ? true : false
 		}
 		return true
 	}

@@ -1,4 +1,4 @@
-import { loadSync } from "jsr:@std/dotenv@0.225.2"
+import { loadSync } from "@std/dotenv"
 import type { iConfig } from "./interface/iConfig.ts"
 
 export class Config {

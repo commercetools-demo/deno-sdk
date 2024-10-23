@@ -9,7 +9,7 @@ import type {
 	QuoteRequest,
 	ReferenceTypeId,
 	StagedQuote,
-} from "../deps.ts"
+} from "../../../clientsdk.ts"
 import { type iHandledResponse, responseCode } from "./base/iBaseHandler.ts"
 import type { iTriggers } from "./base/iTriggers.ts"
 

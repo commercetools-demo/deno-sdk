@@ -7,8 +7,7 @@
 
 _**How to get started**_
 
-Install the Deno runtime on your machine, following this guidance:
-https://deno.land/
+Install the Deno runtime on your machine, following this guidance: https://deno.land/
 
 _**Prerequisites**_
 
@@ -23,10 +22,8 @@ CTP_API_URL=https://api.europe-west1.gcp.commercetools.com
 CTP_SCOPES=manage_project:**-********-****
 ```
 
-install the
-[language server](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
-client for Deno in vscode, to make sure that vscode understands your code is for
-Deno and not for Node.
+install the [language server](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) client for Deno
+in vscode, to make sure that vscode understands your code is for Deno and not for Node.
 
 ***using the api with Client Credentials Flow ***
 
@@ -62,10 +59,7 @@ projectsample
 _**using the api with password flow**_
 
 ```javascript
-import {
-	loglevel,
-	sdk,
-} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts"
+import { loglevel, sdk } from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts"
 
 const handle = sdk.init(loglevel.quiet, {
 	passwordflow: {
@@ -85,10 +79,7 @@ console.log(result.body)
 _**using the api with anonymous flow**_
 
 ```javascript
-import {
-	loglevel,
-	sdk,
-} from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts"
+import { loglevel, sdk } from "https://deno.land/x/commercetools_demo_sdk/clientsdk.ts"
 
 const handle = sdk.init(loglevel.quiet, {
 	anonymous: {

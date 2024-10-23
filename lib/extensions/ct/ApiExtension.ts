@@ -1,9 +1,9 @@
-import type { Extension, ExtensionDraft, sdk } from "../deps.ts"
-import hash from "npm:object-hash@latest"
+import type { Extension, ExtensionDraft, sdk } from "../../../clientsdk.ts"
+import hash from "object-hash"
 
 import type { iTriggers } from "../messagehandlers/base/iTriggers.ts"
 import type { iApiExtension } from "./iApiExtension.ts"
-import type { ErrorResponse } from "npm:@commercetools/importapi-sdk@latest"
+import type { ErrorResponse } from "@commercetools/platform-sdk"
 
 export class ApiExtension implements iApiExtension {
 	private _handle: sdk
@@ -22,9 +22,7 @@ export class ApiExtension implements iApiExtension {
 		)
 		for (const trigger of this._triggers) {
 			console.log(
-				`${
-					trigger.actions.join(", ").toLowerCase()
-				} on ${trigger.resource}`,
+				`${trigger.actions.join(", ").toLowerCase()} on ${trigger.resource}`,
 			)
 		}
 		console.log(`sending to ${realdest}`)

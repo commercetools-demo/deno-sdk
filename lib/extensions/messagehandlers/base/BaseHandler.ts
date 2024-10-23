@@ -1,9 +1,4 @@
-import {
-	type iHandledResponse,
-	type iMessageHandler,
-	type iReferenceMessage,
-	responseCode,
-} from "./iBaseHandler.ts"
+import { type iHandledResponse, type iMessageHandler, type iReferenceMessage, responseCode } from "./iBaseHandler.ts"
 
 export abstract class BaseHandler {
 	private _handlers: iMessageHandler[] = []
@@ -16,9 +11,7 @@ export abstract class BaseHandler {
 			response.push(res)
 		}
 		// if we have errors, return the first error in the queue
-		const errors = response.filter((resp) =>
-			resp.result.code === responseCode.ERROR
-		)
+		const errors = response.filter((resp) => resp.result.code === responseCode.ERROR)
 		if (errors.length) return errors[0]
 		// ok, no errors, return all actions, make sure all duplicates are removed
 		const actions = response.filter((resp) =>
@@ -45,9 +38,7 @@ export abstract class BaseHandler {
 			}
 		}
 		// no actions either, return the first response then
-		return [...new Set(response.map((o) => JSON.stringify(o)))].map((s) =>
-			JSON.parse(s)
-		)[0]
+		return [...new Set(response.map((o) => JSON.stringify(o)))].map((s) => JSON.parse(s))[0]
 	}
 
 	add(handler: iMessageHandler): BaseHandler {

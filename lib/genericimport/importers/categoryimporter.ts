@@ -1,9 +1,4 @@
-import type {
-	CategoryImport,
-	ImportContainer,
-	ImportOperationStatus,
-	importsdk,
-} from "../../../importsdk.ts"
+import type { CategoryImport, ImportContainer, ImportOperationStatus, importsdk } from "../../../importsdk.ts"
 import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 
