@@ -4,7 +4,7 @@ import type {
 	importsdk,
 	ProductVariantImport,
 	ProductVariantPatch,
-} from "../../../importsdk.ts"
+} from "../../importsdk/importsdk.ts"
 import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 

@@ -7,8 +7,9 @@ import type {
 	OrderPatchImport,
 	ProductVariantPatch,
 	ProductVariantPatchRequest,
-} from "../../../importsdk.ts"
+} from "../../importsdk/importsdk.ts"
 
+/** the various supported entities for the genericimporter */
 export enum ImportType {
 	category = "category",
 	customer = "customer",

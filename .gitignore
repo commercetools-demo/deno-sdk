@@ -10,3 +10,4 @@ bench
 test
 deno.lock
 archive
+docs

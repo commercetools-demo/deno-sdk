@@ -1,5 +1,44 @@
-export * from "./importsdk.ts"
-export * from "./clientsdk.ts"
+/**
+ * # commercetools Deno sdk
+ * 
+ * ### prerequisites
+ * place a ```.env``` file with the commercetools details in the same folder as where you are executing the code
+ * ```ini
+ * CTP_PROJECT_KEY=xxxx
+ * CTP_CLIENT_SECRET=xxxxx
+ * CTP_CLIENT_ID=xxxx
+ * CTP_AUTH_URL=https://auth.europe-west1.gcp.commercetools.com
+ * CTP_API_URL=https://api.europe-west1.gcp.commercetools.com
+ * CTP_SCOPES=manage_project:xxxx
+ * ```
+ * 
+ * Contains the following modules:
+ * 
+ * # The SDK
+ * 
+ * {@linkcode sdk} the main deno sdk for commercetools
+ * ```ts
+ * 	import { sdk } from "./mod.ts"
+ * 	
+ * 	const handle = sdk.init()
+ * 	const project = await handle.root().get().execute()
+ * 	console.log(project)
+ * ```
+ * to run this example on your machine, execute: 
+ * ```bash
+ * deno -A jsr:@commercetoolsdemo/sdk/examples/project.ts 
+ * ```
+ * 
+ * - {@linkcode importsdk} the main deno importsdk for commercetools
+ * - {@linkcode Importer} an importer, that imports batches of data for a given resourse
+ * - {@linkcode extensionsListener} a utility function to handle API extensions durint development on your laptop
+ * - {@linkcode messagesListener} a utility function to listen to subscription messages
+ *  
+ * @module
+ */
+
+// sdk exports:
+export * from "./lib/sdk/clientsdk.ts"
 export type {
 	Address,
 	ApiRequest,
@@ -139,6 +178,18 @@ export type {
 	VariableMap,
 	VariantValues,
 	WhitespaceTokenizer,
-} from "./clientsdk.ts"
-export * from "./listener.ts"
-export * from "./messages.ts"
+} from "./lib/sdk/clientsdk.ts"
+
+// importsdk exports
+export * from "./lib/importsdk/importsdk.ts"
+
+// genericimport exports
+export { Importer, ImportType } from "./lib/genericimport/genericimport.ts"
+
+// listener exports
+export * from "./lib/extensionsListener/extensionsListener.ts"
+
+// messages exports
+export * from "./lib/messagesListener/messagesListener.ts"
+export type { EventMessage } from "./lib/messagesListener/messagesListener.ts"
+

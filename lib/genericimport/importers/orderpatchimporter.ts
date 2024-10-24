@@ -4,7 +4,7 @@ import type {
 	importsdk,
 	OrderImport,
 	OrderPatchImport,
-} from "../../../importsdk.ts"
+} from "../../importsdk/importsdk.ts"
 import type { iImportHandler, ImportType } from "./iImportHandler.ts"
 import { test } from "./utils.ts"
 

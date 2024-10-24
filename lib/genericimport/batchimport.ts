@@ -1,6 +1,6 @@
 import { wait } from "jsr:@denosaurs/wait@0.2.2"
 import { getContainerStatus, getOrCreateContainer } from "./containers.ts"
-import { type ImportOperationStatus, importsdk } from "../../importsdk.ts"
+import { type ImportOperationStatus, importsdk } from "../importsdk/importsdk.ts"
 import type { TypedImporter } from "./importers/iImportHandler.ts"
 
 // deno-lint-ignore require-await
