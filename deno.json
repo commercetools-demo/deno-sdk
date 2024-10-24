@@ -12,13 +12,7 @@
 	"name": "@commercetoolsdemo/sdk",
 	"version": "0.2.1",
 	"license": "MIT",
-	"exports": {
-		".": "./clientsdk.ts",
-		"./import": "./importsdk.ts",
-		"./genericimport": "./genericimport.ts",
-		"./listener": "./listener.ts",
-		"./messages": "./messages.ts"
-	},
+	"exports": "./mod.ts",
 	"imports": {
 		"@cliffy/keypress": "jsr:@cliffy/keypress@1.0.0-rc.7",
 		"@commercetools/importapi-sdk": "npm:@commercetools/importapi-sdk@^5.12.0",
