@@ -1,9 +1,12 @@
 {
   "name": "@commercetoolsdemo/examples",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "exports": {
-    "./examples/project": "./project.ts"
+    "./project": "./project.ts",
+    "./projectVerbose": "./projectVerbose.ts",
+    "./extensionsListener": "./extensionsListener.ts",
+    "./messagesListener": "./messagesListener.ts"
   },
   "imports": {
     "@commercetoolsdemo/sdk": "jsr:@commercetoolsdemo/sdk@^0.2.3"
