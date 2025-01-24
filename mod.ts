@@ -26,14 +26,17 @@
  * ```
  * to run this example on your machine, execute: 
  * ```bash
- * deno -A jsr:@commercetoolsdemo/sdk/examples/project.ts 
+ * deno -A jsr:@commercetoolsdemo/sdk/examples/project 
  * ```
  * 
  * - {@linkcode importsdk} the main deno importsdk for commercetools
  * - {@linkcode Importer} an importer, that imports batches of data for a given resourse
  * - {@linkcode extensionsListener} a utility function to handle API extensions durint development on your laptop
  * - {@linkcode messagesListener} a utility function to listen to subscription messages
- *  
+ *  to run this example on your machine, execute: 
+ * ```bash
+ * deno -A jsr:@commercetoolsdemo/sdk/examples/messagesListener 
+ * ```
  * @module
  */
 

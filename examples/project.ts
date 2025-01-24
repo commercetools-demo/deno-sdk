@@ -1,4 +1,4 @@
-import { sdk } from "@commercetoolsdemo/sdk"
+import { sdk } from "../mod.ts"
 
 /**
  * # project example
